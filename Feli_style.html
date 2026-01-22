@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Agenda de Peluquería | Reserva tu Turno</title>
+    <title>Feli_Style Barbería | Agenda y Reservas</title>
     
     <!-- SEO Optimizado -->
-    <meta name="description" content="Agenda online para peluquería. Reserva tu turno para corte, tintura, cejas y más. Disponibilidad en tiempo real.">
-    <meta name="keywords" content="peluquería, agenda online, turnos, corte de pelo, tintura, cejas, belleza, estética">
-    <meta name="author" content="Peluquería Estilo">
+    <meta name="description" content="Agenda online para barbería Feli_Style. Reserva tu turno para corte, arreglo de barba, afeitado y más servicios de barbería profesional.">
+    <meta name="keywords" content="barbería, agenda online, turnos, corte de pelo, barba, afeitado, Feli_Style">
+    <meta name="author" content="Feli_Style Barbería">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Agenda de Peluquería | Reserva tu Turno Online">
-    <meta property="og:description" content="Reserva tu turno fácilmente. Cortes, tinturas, cejas y más servicios de belleza.">
+    <meta property="og:title" content="Feli_Style Barbería | Reserva tu Turno Online">
+    <meta property="og:description" content="Reserva tu turno fácilmente. Cortes, arreglo de barba, afeitado y más servicios de barbería profesional.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/1995/1995515.png">
     
@@ -26,24 +26,25 @@
     
     <style>
         :root {
-            --primary: #d4a574;
-            --primary-dark: #b88c5e;
-            --secondary: #8e44ad;
-            --dark: #2c3e50;
-            --light: #f9f7f4;
+            --primary: #000000;
+            --primary-dark: #1a1a1a;
+            --secondary: #666666;
+            --dark: #333333;
+            --light: #f5f5f5;
             --white: #ffffff;
-            --gray: #95a5a6;
-            --danger: #e74c3c;
+            --gray: #888888;
+            --accent: #e0e0e0;
+            --danger: #cc3333;
             --success: #2ecc71;
-            --border: #e0d6cc;
+            --border: #dddddd;
             --radius-lg: 20px;
             --radius-md: 12px;
-            --shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         header {
@@ -51,18 +52,24 @@
             color: white;
             padding: 1.2rem 0;
             position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 12px; }
-        .logo i { font-size: 1.8rem; }
-        .logo h1 { font-size: 1.4rem; font-weight: 700; }
-        .logo span { font-weight: 300; font-size: 1rem; }
+        .logo-img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
+        .logo span { font-weight: 300; font-size: 0.9rem; color: var(--accent); }
 
         .cart-btn { 
-            background: rgba(255,255,255,0.2); 
-            border: 2px solid white;
-            color: white;
+            background: rgba(255,255,255,0.15); 
+            border: 2px solid var(--accent);
+            color: var(--white);
             padding: 8px 16px;
             border-radius: 50px;
             font-weight: 600;
@@ -72,35 +79,36 @@
             gap: 8px;
             transition: var(--transition);
         }
-        .cart-btn:hover { background: rgba(255,255,255,0.3); }
+        .cart-btn:hover { background: rgba(255,255,255,0.25); }
 
         .hero {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974');
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974');
             background-size: cover;
             background-position: center;
             border-radius: 0 0 var(--radius-lg) var(--radius-lg);
             margin-bottom: 30px;
-        }
-        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--dark); }
-        .hero p { font-size: 1.1rem; color: var(--gray); max-width: 600px; margin: 0 auto 20px; }
-        .cta-button {
-            background: var(--primary);
             color: white;
+        }
+        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--white); }
+        .hero p { font-size: 1.1rem; color: var(--accent); max-width: 600px; margin: 0 auto 20px; }
+        .cta-button {
+            background: var(--white);
+            color: var(--primary);
             border: none;
             padding: 14px 32px;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .cta-button:hover {
-            background: var(--primary-dark);
+            background: var(--accent);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
         /* Sección de servicios */
@@ -109,7 +117,7 @@
             text-align: center; 
             font-size: 1.8rem; 
             margin-bottom: 25px; 
-            color: var(--dark);
+            color: var(--primary);
             position: relative;
             padding-bottom: 10px;
         }
@@ -136,16 +144,17 @@
             padding: 25px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             cursor: pointer;
         }
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: var(--primary);
         }
         .service-card.selected {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
         .service-icon {
             font-size: 2.5rem;
@@ -180,11 +189,12 @@
         /* Calendario */
         .calendar-section { margin-bottom: 40px; }
         .calendar-container {
-            background: white;
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 25px;
             box-shadow: var(--shadow);
             margin-bottom: 20px;
+            border: 1px solid var(--border);
         }
         .calendar-header {
             display: flex;
@@ -195,21 +205,23 @@
         .calendar-title {
             font-size: 1.3rem;
             font-weight: 700;
+            color: var(--primary);
         }
         .calendar-nav button {
             background: var(--light);
-            border: none;
+            border: 1px solid var(--border);
             width: 40px;
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1.2rem;
-            color: var(--dark);
+            color: var(--primary);
             transition: var(--transition);
         }
         .calendar-nav button:hover {
             background: var(--primary);
-            color: white;
+            color: var(--white);
+            border-color: var(--primary);
         }
         .calendar-grid {
             display: grid;
@@ -223,6 +235,8 @@
             padding: 10px;
             color: var(--dark);
             font-size: 0.9rem;
+            background: var(--light);
+            border-radius: var(--radius-md);
         }
         .calendar-day {
             aspect-ratio: 1;
@@ -233,24 +247,26 @@
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
+            border: 2px solid transparent;
         }
         .calendar-day:hover {
             background: var(--light);
+            border-color: var(--primary);
         }
         .calendar-day.selected {
             background: var(--primary);
-            color: white;
+            color: var(--white);
         }
         .calendar-day.disabled {
             color: var(--gray);
             cursor: not-allowed;
-            background: #f5f5f5;
+            background: #f9f9f9;
         }
         .calendar-day.today {
             border: 2px solid var(--primary);
         }
         .calendar-day.booked {
-            background: #ffeaea;
+            background: #f0f0f0;
             color: var(--danger);
             position: relative;
         }
@@ -276,33 +292,37 @@
             transition: var(--transition);
             font-weight: 600;
             border: 2px solid transparent;
+            color: var(--dark);
         }
         .time-slot:hover {
-            background: #e8dfd3;
+            background: var(--accent);
+            border-color: var(--primary);
         }
         .time-slot.selected {
             background: var(--primary);
-            color: white;
+            color: var(--white);
             border-color: var(--primary);
         }
         .time-slot.booked {
-            background: #ffebee;
+            background: #f5f5f5;
             color: var(--danger);
             cursor: not-allowed;
+            border-color: #ffcccc;
         }
         .time-slot.unavailable {
-            background: #f5f5f5;
+            background: #f9f9f9;
             color: var(--gray);
             cursor: not-allowed;
         }
 
         /* Formulario de reserva */
         .booking-form {
-            background: white;
+            background: var(--white);
             border-radius: var(--radius-lg);
             padding: 30px;
             box-shadow: var(--shadow);
             margin-bottom: 40px;
+            border: 1px solid var(--border);
         }
         .form-group {
             margin-bottom: 20px;
@@ -311,6 +331,7 @@
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
+            color: var(--dark);
         }
         .form-input {
             width: 100%;
@@ -319,11 +340,13 @@
             border-radius: var(--radius-md);
             font-size: 1rem;
             transition: var(--transition);
+            background: var(--white);
+            color: var(--dark);
         }
         .form-input:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.2);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
         .form-textarea {
             min-height: 100px;
@@ -332,17 +355,18 @@
 
         /* Resumen de reserva */
         .booking-summary {
-            background: #f8f5f0;
+            background: var(--light);
             border-radius: var(--radius-lg);
             padding: 25px;
             border-left: 5px solid var(--primary);
             margin-bottom: 30px;
+            border: 1px solid var(--border);
         }
         .summary-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--primary);
         }
         .summary-item {
             display: flex;
@@ -364,7 +388,7 @@
         /* Botones */
         .btn-primary {
             background: var(--primary);
-            color: white;
+            color: var(--white);
             border: none;
             padding: 14px 28px;
             border-radius: var(--radius-md);
@@ -382,7 +406,7 @@
             cursor: not-allowed;
         }
         .btn-secondary {
-            background: white;
+            background: var(--white);
             color: var(--primary);
             border: 2px solid var(--primary);
             padding: 12px 24px;
@@ -393,13 +417,13 @@
         }
         .btn-secondary:hover {
             background: var(--primary);
-            color: white;
+            color: var(--white);
         }
 
         /* Panel de administración */
         .admin-panel {
-            background: white;
-            border: 2px solid var(--dark);
+            background: var(--white);
+            border: 2px solid var(--primary);
             border-radius: var(--radius-lg);
             padding: 25px;
             margin: 30px 0;
@@ -419,6 +443,7 @@
             font-weight: 600;
             border-bottom: 3px solid transparent;
             transition: var(--transition);
+            color: var(--dark);
         }
         .admin-tab.active {
             border-bottom-color: var(--primary);
@@ -445,10 +470,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid var(--border);
         }
         .appointment-info h4 {
             font-size: 1.1rem;
             margin-bottom: 5px;
+            color: var(--primary);
         }
         .appointment-time {
             color: var(--primary);
@@ -469,6 +496,78 @@
             font-weight: 600;
         }
 
+        /* QR y Compartir */
+        .qr-section {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            border: 1px solid var(--border);
+        }
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            font-size: 5rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .share-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .share-btn.whatsapp { background: #25D366; }
+        .share-btn.facebook { background: #1877F2; }
+        .share-btn.link { background: var(--secondary); }
+
+        /* Contacto */
+        .contact-info {
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contact-info i {
+            color: var(--primary);
+        }
+
         /* Modal y notificaciones */
         .modal {
             position: fixed;
@@ -476,7 +575,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(5px);
             display: none;
             align-items: center;
@@ -488,7 +587,7 @@
             display: flex;
         }
         .modal-content {
-            background: white;
+            background: var(--white);
             width: 100%;
             max-width: 500px;
             padding: 30px;
@@ -496,6 +595,7 @@
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
+            border: 1px solid var(--border);
         }
         .modal-close {
             position: absolute;
@@ -524,52 +624,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* QR y Compartir */
-        .qr-section {
-            text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-        }
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 20px auto;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-md);
-            font-size: 5rem;
-            color: var(--primary);
-        }
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .share-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-        .share-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .share-btn.whatsapp { background: #25D366; }
-        .share-btn.facebook { background: #1877F2; }
-        .share-btn.link { background: var(--secondary); }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h2 { font-size: 1.8rem; }
@@ -577,11 +631,14 @@
             .calendar-grid { gap: 5px; }
             .calendar-day { font-size: 0.9rem; }
             .time-slots { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+            .logo h1 { font-size: 1.2rem; }
+            .logo-img { height: 40px; }
         }
         @media (max-width: 480px) {
             .header-content { flex-direction: column; gap: 15px; }
             .hero { padding: 30px 15px; }
             .calendar-container { padding: 15px; }
+            .logo { flex-direction: column; text-align: center; gap: 8px; }
         }
 
         /* Estados de carga */
@@ -607,10 +664,10 @@
     <header>
         <div class="container header-content">
             <div class="logo">
-                <i class="fas fa-scissors"></i>
-                <div>
-                    <h1>Peluquería Estilo</h1>
-                    <span>Agenda Online</span>
+                <img src="https://via.placeholder.com/50x50/000000/FFFFFF?text=F" alt="Feli_Style Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>Feli_Style</h1>
+                    <span>Barbería Profesional</span>
                 </div>
             </div>
             <button class="cart-btn" id="cart-btn">
@@ -623,7 +680,7 @@
     <main class="container">
         <!-- Hero Section -->
         <section class="hero">
-            <h2>Reserva tu Turno Fácil y Rápido</h2>
+            <h2>Reserva tu Turno en Feli_Style</h2>
             <p>Elige tus servicios, selecciona fecha y hora disponible, y confirma tu reserva en minutos.</p>
             <button class="cta-button" onclick="scrollToServices()">Reservar Ahora</button>
         </section>
@@ -650,7 +707,7 @@
 
         <!-- Servicios -->
         <section class="services-section" id="services">
-            <h3 class="section-title">Elige tus Servicios</h3>
+            <h3 class="section-title">Nuestros Servicios</h3>
             <div class="services-grid" id="services-container">
                 <!-- Los servicios se cargarán aquí desde Google Sheets -->
                 <div class="loading">
@@ -715,6 +772,14 @@
             </div>
 
             <button class="btn-primary" id="confirm-booking" onclick="confirmBooking()">Confirmar Reserva</button>
+        </section>
+
+        <!-- Información de Contacto -->
+        <section class="contact-info">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-phone-alt"></i> Teléfono: 011-2351-7823</p>
+            <p><i class="fas fa-envelope"></i> Email: diegonahuel011@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Enrique Dunant entre General Las Heras y El Salvador</p>
         </section>
 
         <!-- Panel de Administración -->
@@ -798,22 +863,28 @@
     <script>
         // CONFIGURACIÓN
         const CONFIG = {
-            ADMIN: { user: "admin", pass: "pelu123" },
-            STORAGE_KEY: "peluqueria_agenda",
-            APPOINTMENTS_KEY: "peluqueria_turnos",
-            SETTINGS_KEY: "peluqueria_config",
-            DEFAULT_SHEET: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQX_MteY9z1Of-MIimoruabnLSCY2p1mMDl0RvYeDWivYTfXljryTikNsCGM3yFdF-PcoWo2Zyb5EiS/pub?gid=0&single=true&output=csv"
+            ADMIN: { user: "admin", pass: "feli123" },
+            STORAGE_KEY: "feli_style_agenda",
+            APPOINTMENTS_KEY: "feli_style_turnos",
+            SETTINGS_KEY: "feli_style_config",
+            DEFAULT_SERVICES: [
+                { id: '1', name: 'Corte de Cabello', description: 'Corte profesional con lavado incluido', duration: 45, price: 9000, category: 'Cortes' },
+                { id: '2', name: 'Corte Niños (hasta 11 años)', description: 'Corte especial para niños', duration: 30, price: 7000, category: 'Cortes' },
+                { id: '3', name: 'Arreglo de Barba', description: 'Perfilado y arreglo completo de barba', duration: 30, price: 2000, category: 'Barba' },
+                { id: '4', name: 'Afeitado Completo', description: 'Afeitado tradicional con navaja', duration: 40, price: 3000, category: 'Barba' },
+                { id: '5', name: 'Perfilado de Ceja', description: 'Diseño y perfilado de cejas', duration: 20, price: 2000, category: 'Estética' }
+            ]
         };
 
         // HORARIOS DE TRABAJO
         const BUSINESS_HOURS = {
             start: 9,    // 9:00 AM
-            end: 18,     // 6:00 PM
+            end: 19,     // 7:00 PM
             interval: 30 // minutos
         };
 
         // VARIABLES GLOBALES
-        let services = [];
+        let services = CONFIG.DEFAULT_SERVICES;
         let selectedServices = [];
         let selectedDate = null;
         let selectedTime = null;
@@ -826,7 +897,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             loadSettings();
             loadAppointments();
-            loadServices();
+            renderServices();
             initCalendar();
             setupEventListeners();
             generateQRCode();
@@ -835,9 +906,9 @@
         // CARGAR CONFIGURACIÓN
         function loadSettings() {
             const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            document.getElementById('sheet-url').value = settings.sheetUrl || CONFIG.DEFAULT_SHEET;
-            document.getElementById('whatsapp-number').value = settings.whatsappNumber || "5491168705261";
-            document.getElementById('business-hours').value = settings.businessHours || "Lunes a Viernes 9:00-18:00";
+            document.getElementById('sheet-url').value = settings.sheetUrl || "";
+            document.getElementById('whatsapp-number').value = settings.whatsappNumber || "5491123517823";
+            document.getElementById('business-hours').value = settings.businessHours || "Lunes a Sábado 9:00-19:00";
         }
 
         function saveSettings() {
@@ -851,10 +922,15 @@
         }
 
         // CARGAR Y SINCRONIZAR SERVICIOS
-        async function loadServices() {
+        async function loadServicesFromSheet() {
             try {
                 const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-                const sheetUrl = settings.sheetUrl || CONFIG.DEFAULT_SHEET;
+                const sheetUrl = settings.sheetUrl;
+                
+                if (!sheetUrl) {
+                    showNotification("No hay URL de Google Sheets configurada");
+                    return;
+                }
                 
                 const response = await fetch(sheetUrl + '&cache=' + Date.now());
                 const csvText = await response.text();
@@ -871,24 +947,16 @@
                 
                 renderServices();
                 localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(services));
+                showNotification("Servicios sincronizados correctamente");
             } catch (error) {
                 console.error("Error cargando servicios:", error);
-                // Usar datos de ejemplo si falla
-                services = [
-                    { id: '1', name: 'Corte de Cabello', description: 'Corte profesional con lavado incluido', duration: 45, price: 2500, category: 'Cortes' },
-                    { id: '2', name: 'Tintura Completa', description: 'Tintura completa con productos premium', duration: 90, price: 4500, category: 'Color' },
-                    { id: '3', name: 'Diseño de Cejas', description: 'Perfilado y diseño de cejas', duration: 30, price: 1200, category: 'Estética' },
-                    { id: '4', name: 'Manicure Básico', description: 'Manicure con esmaltado tradicional', duration: 40, price: 1500, category: 'Manos' },
-                    { id: '5', name: 'Tratamiento Capilar', description: 'Tratamiento revitalizante para el cabello', duration: 60, price: 3200, category: 'Tratamientos' },
-                    { id: '6', name: 'Peinado para Eventos', description: 'Peinado especial para ocasiones', duration: 60, price: 3800, category: 'Peinados' }
-                ];
-                renderServices();
+                showNotification("Error al cargar servicios. Usando datos predeterminados", true);
             }
         }
 
         function syncServices() {
             showNotification("Sincronizando servicios...");
-            loadServices();
+            loadServicesFromSheet();
         }
 
         function renderServices() {
@@ -900,7 +968,7 @@
             let html = '';
             categories.forEach(category => {
                 const categoryServices = services.filter(s => s.category === category);
-                html += `<h4 style="grid-column: 1/-1; margin-top: 20px; color: var(--dark);">${category}</h4>`;
+                html += `<h4 style="grid-column: 1/-1; margin-top: 20px; color: var(--dark); border-bottom: 2px solid var(--border); padding-bottom: 10px;">${category}</h4>`;
                 
                 categoryServices.forEach(service => {
                     const isSelected = selectedServices.some(s => s.id === service.id);
@@ -925,11 +993,9 @@
         function getServiceIcon(category) {
             const icons = {
                 'Cortes': 'cut',
-                'Color': 'palette',
+                'Barba': 'user-tie',
                 'Estética': 'eye',
-                'Manos': 'hand-sparkles',
-                'Tratamientos': 'spa',
-                'Peinados': 'user-tie'
+                'General': 'scissors'
             };
             return icons[category] || 'scissors';
         }
@@ -1197,10 +1263,10 @@
 
         function sendWhatsAppNotification(appointment) {
             const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            const phone = settings.whatsappNumber || "5491168705261";
+            const phone = settings.whatsappNumber || "5491123517823";
             
-            const servicesList = appointment.services.map(s => `• ${s.name}`).join('%0A');
-            const message = `📅 *NUEVO TURNO AGENDADO* 📅%0A%0A` +
+            const servicesList = appointment.services.map(s => `• ${s.name}: $${s.price}`).join('%0A');
+            const message = `✂️ *NUEVO TURNO AGENDADO - Feli_Style* ✂️%0A%0A` +
                           `*Cliente:* ${appointment.client.name}%0A` +
                           `*Teléfono:* ${appointment.client.phone}%0A` +
                           `*Fecha:* ${formatDateDisplay(new Date(appointment.date))}%0A` +
@@ -1208,7 +1274,8 @@
                           `*Duración:* ${appointment.duration} min%0A%0A` +
                           `*Servicios:*%0A${servicesList}%0A%0A` +
                           `*Total:* $${appointment.total}%0A%0A` +
-                          `*Notas:* ${appointment.client.notes || 'Ninguna'}`;
+                          `*Notas:* ${appointment.client.notes || 'Ninguna'}%0A%0A` +
+                          `*Dirección:* Enrique Dunant entre General Las Heras y El Salvador`;
             
             window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
         }
@@ -1220,7 +1287,7 @@
                 ⏰ <strong>Hora:</strong> ${appointment.time}<br>
                 ⏱️ <strong>Duración:</strong> ${appointment.duration} minutos<br>
                 💰 <strong>Total:</strong> $${appointment.total}<br><br>
-                Te esperamos en nuestro local.
+                Te esperamos en Feli_Style Barbería.
             `;
             
             document.getElementById('confirmation-details').innerHTML = details;
@@ -1333,13 +1400,13 @@
             // Aquí usamos un placeholder
             document.getElementById('qr-code').innerHTML = `
                 <i class="fas fa-qrcode"></i>
-                <div style="font-size: 0.8rem; margin-top: 10px;">${currentUrl}</div>
+                <div style="font-size: 0.8rem; margin-top: 10px; color: var(--gray);">${currentUrl}</div>
             `;
         }
 
         function shareViaWhatsApp() {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent("¡Reserva tu turno en la peluquería! Agenda online fácil y rápida.");
+            const text = encodeURIComponent("¡Reserva tu turno en Feli_Style Barbería! Agenda online fácil y rápida.");
             window.open(`https://wa.me/?text=${text}%0A%0A${url}`, '_blank');
         }
 
