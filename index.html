@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Feli_Style Barbería | Agenda y Reservas</title>
+    <title>Feli_Style Barbería | Reservas Elegantes</title>
     
     <!-- SEO Optimizado -->
-    <meta name="description" content="Agenda online para barbería Feli_Style. Reserva tu turno para corte, arreglo de barba, afeitado y más servicios de barbería profesional.">
-    <meta name="keywords" content="barbería, agenda online, turnos, corte de pelo, barba, afeitado, Feli_Style">
+    <meta name="description" content="Agenda online exclusiva para Feli_Style Barbería. Reserva tu turno para corte, arreglo de barba, afeitado y servicios premium.">
+    <meta name="keywords" content="barbería, agenda online, turnos, corte de pelo, barba, afeitado, Feli_Style, estilo masculino">
     <meta name="author" content="Feli_Style Barbería">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Feli_Style Barbería | Reserva tu Turno Online">
-    <meta property="og:description" content="Reserva tu turno fácilmente. Cortes, arreglo de barba, afeitado y más servicios de barbería profesional.">
+    <meta property="og:title" content="Feli_Style Barbería | Reserva Elegante Online">
+    <meta property="og:description" content="Reserva tu turno en la barbería más exclusiva. Cortes, arreglo de barba, afeitado y más servicios premium.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
     
@@ -21,270 +21,664 @@
     <link rel="icon" type="image/png" href="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     
     <style>
         :root {
-            --primary: #000000;
-            --primary-dark: #1a1a1a;
-            --secondary: #666666;
-            --dark: #333333;
-            --light: #f5f5f5;
+            --primary: #0a0a0a;
+            --primary-dark: #000000;
+            --secondary: #2a2a2a;
+            --accent: #c9a86a;
+            --accent-light: #e6d7b8;
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
             --white: #ffffff;
-            --gray: #888888;
-            --accent: #e0e0e0;
+            --gray: #777777;
+            --gray-light: #e5e5e5;
             --danger: #cc3333;
             --success: #2ecc71;
-            --border: #dddddd;
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --border: #e0e0e0;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--white); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        
+        body { 
+            background-color: var(--white); 
+            color: var(--dark); 
+            line-height: 1.7; 
+            overflow-x: hidden; 
+            width: 100%; 
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(248, 248, 248, 0.8) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(248, 248, 248, 0.6) 0%, transparent 20%);
+        }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 24px; 
+        }
 
+        /* Header elegante */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: var(--primary);
             color: white;
-            padding: 1.2rem 0;
-            position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 1.4rem 0;
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 12px; }
+        
+        .header-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 16px; 
+        }
+        
         .logo-img {
-            height: 50px;
+            height: 56px;
             width: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: var(--radius-sm);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 2px solid var(--accent);
+            transition: var(--transition);
         }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo h1 { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; }
-        .logo span { font-weight: 300; font-size: 0.9rem; color: var(--accent); }
+        
+        .logo-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(201, 168, 106, 0.3);
+        }
+        
+        .logo-text { 
+            display: flex; 
+            flex-direction: column; 
+        }
+        
+        .logo h1 { 
+            font-size: 1.6rem; 
+            font-weight: 800; 
+            letter-spacing: 0.5px; 
+            font-family: 'Playfair Display', serif;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo span { 
+            font-weight: 300; 
+            font-size: 0.85rem; 
+            color: var(--accent-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Iconos de redes sociales en header */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .social-icon.whatsapp:hover { background: #25D366; }
+        .social-icon.facebook:hover { background: #1877F2; }
+        .social-icon.instagram:hover { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
 
         .cart-btn { 
-            background: rgba(255,255,255,0.15); 
-            border: 2px solid var(--accent);
+            background: rgba(255,255,255,0.1); 
+            border: 1.5px solid var(--accent);
             color: var(--white);
-            padding: 8px 16px;
+            padding: 10px 22px;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: var(--transition);
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
-        .cart-btn:hover { background: rgba(255,255,255,0.25); }
+        
+        .cart-btn:hover { 
+            background: var(--accent); 
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 168, 106, 0.3);
+        }
 
+        /* Hero section premium */
         .hero {
             text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974');
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.88)), 
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
             background-size: cover;
             background-position: center;
-            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-            margin-bottom: 30px;
+            background-attachment: fixed;
+            margin-bottom: 50px;
             color: white;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            position: relative;
+            overflow: hidden;
         }
-        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; color: var(--white); }
-        .hero p { font-size: 1.1rem; color: var(--accent); max-width: 600px; margin: 0 auto 20px; }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(201, 168, 106, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 { 
+            font-size: 3.2rem; 
+            margin-bottom: 20px; 
+            color: var(--white); 
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        
+        .hero p { 
+            font-size: 1.3rem; 
+            color: var(--accent-light); 
+            max-width: 600px; 
+            margin: 0 auto 30px; 
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        
         .cta-button {
-            background: var(--white);
+            background: var(--accent);
             color: var(--primary);
             border: none;
-            padding: 14px 32px;
+            padding: 18px 42px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(201, 168, 106, 0.4);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.6s;
+        }
+        
         .cta-button:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            background: #e0c989;
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(201, 168, 106, 0.5);
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
         }
 
-        /* Sección de servicios */
-        .services-section { margin-bottom: 40px; }
+        /* Sección QR con logo banner */
+        .qr-section {
+            text-align: center;
+            padding: 60px 30px;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .qr-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+        }
+        
+        .qr-banner {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .qr-banner-logo {
+            height: 70px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 2px solid var(--accent);
+        }
+        
+        .qr-banner h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .qr-banner p {
+            color: var(--accent-light);
+            max-width: 500px;
+        }
+        
         .section-title { 
             text-align: center; 
-            font-size: 1.8rem; 
-            margin-bottom: 25px; 
+            font-size: 2.2rem; 
+            margin-bottom: 40px; 
             color: var(--primary);
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
+        
         .section-title:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--primary);
+            width: 100px;
+            height: 4px;
+            background: var(--gold-gradient);
+            border-radius: 2px;
         }
 
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .qr-code-real {
+            width: 220px;
+            height: 220px;
+            background: white;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            margin: 0 auto;
+        }
+        
+        #qrcode {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .qr-url {
+            font-size: 1.1rem;
+            color: var(--gray);
+            background: var(--light);
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            border: 1px dashed var(--border);
+            font-family: monospace;
+            word-break: break-all;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 30px;
+        }
+        
+        .share-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .share-btn.whatsapp { background: #25D366; }
+        .share-btn.facebook { background: #1877F2; }
+        .share-btn.instagram { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+        .share-btn.link { background: var(--secondary); }
+
+        /* Servicios premium */
+        .services-section { 
+            margin-bottom: 60px; 
+        }
+        
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-bottom: 40px;
         }
+        
         .service-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 25px;
+            padding: 32px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 2px solid var(--border);
+            border: 1px solid var(--border);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+            transform: scaleX(0);
+            transition: transform 0.6s ease;
+            transform-origin: left;
+        }
+        
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-            border-color: var(--primary);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-light);
         }
+        
+        .service-card:hover:before {
+            transform: scaleX(1);
+        }
+        
         .service-card.selected {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+            background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
+            box-shadow: 0 15px 40px rgba(201, 168, 106, 0.15);
         }
+        
         .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            transition: var(--transition);
         }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
         .service-name {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
+        
         .service-price {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 10px;
-        }
-        .service-desc {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 15px;
-        }
-        .service-duration {
-            font-size: 0.8rem;
-            color: var(--gray);
-            background: var(--light);
-            padding: 4px 10px;
-            border-radius: 20px;
+            margin-bottom: 12px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: inline-block;
         }
+        
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .service-duration {
+            font-size: 0.85rem;
+            color: var(--gray);
+            background: var(--light);
+            padding: 6px 14px;
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
 
-        /* Calendario */
-        .calendar-section { margin-bottom: 40px; }
+        /* Calendario elegante */
+        .calendar-section { 
+            margin-bottom: 60px; 
+        }
+        
         .calendar-container {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 25px;
+            padding: 35px;
             box-shadow: var(--shadow);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .calendar-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+        }
+        
         .calendar-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
+        
         .calendar-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
+        
         .calendar-nav button {
             background: var(--light);
             border: 1px solid var(--border);
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary);
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        
         .calendar-nav button:hover {
-            background: var(--primary);
+            background: var(--accent);
             color: var(--white);
-            border-color: var(--primary);
+            border-color: var(--accent);
+            transform: scale(1.1);
         }
+        
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 25px;
         }
+        
         .calendar-day-header {
             text-align: center;
             font-weight: 700;
-            padding: 10px;
-            color: var(--dark);
-            font-size: 0.9rem;
+            padding: 14px;
+            color: var(--primary);
+            font-size: 0.95rem;
             background: var(--light);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+        
         .calendar-day {
             aspect-ratio: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
+            border-radius: var(--radius-sm);
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
             border: 2px solid transparent;
+            background: var(--white);
+            color: var(--dark);
         }
+        
         .calendar-day:hover {
-            background: var(--light);
-            border-color: var(--primary);
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: scale(1.05);
         }
+        
         .calendar-day.selected {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 6px 15px rgba(201, 168, 106, 0.3);
         }
+        
         .calendar-day.disabled {
-            color: var(--gray);
+            color: var(--gray-light);
             cursor: not-allowed;
             background: #f9f9f9;
         }
+        
         .calendar-day.today {
-            border: 2px solid var(--primary);
+            border: 2px solid var(--accent);
+            background: rgba(201, 168, 106, 0.1);
         }
+        
         .calendar-day.booked {
-            background: #f0f0f0;
+            background: #fff0f0;
             color: var(--danger);
             position: relative;
         }
+        
         .calendar-day.booked:after {
-            content: '●';
+            content: '✗';
             position: absolute;
             bottom: 5px;
-            font-size: 0.6rem;
+            font-size: 0.7rem;
+            font-weight: bold;
         }
 
         /* Horarios */
         .time-slots {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 14px;
         }
+        
         .time-slot {
-            padding: 12px;
+            padding: 14px;
             text-align: center;
             background: var(--light);
             border-radius: var(--radius-md);
@@ -293,25 +687,33 @@
             font-weight: 600;
             border: 2px solid transparent;
             color: var(--dark);
+            font-size: 1rem;
         }
+        
         .time-slot:hover {
-            background: var(--accent);
-            border-color: var(--primary);
+            background: var(--accent-light);
+            border-color: var(--accent);
+            transform: translateY(-3px);
         }
+        
         .time-slot.selected {
-            background: var(--primary);
-            color: var(--white);
-            border-color: var(--primary);
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 6px 15px rgba(201, 168, 106, 0.3);
         }
+        
         .time-slot.booked {
-            background: #f5f5f5;
-            color: var(--danger);
-            cursor: not-allowed;
-            border-color: #ffcccc;
-        }
-        .time-slot.unavailable {
             background: #f9f9f9;
             color: var(--gray);
+            cursor: not-allowed;
+            border-color: #e0e0e0;
+            text-decoration: line-through;
+        }
+        
+        .time-slot.unavailable {
+            background: #f5f5f5;
+            color: var(--gray-light);
             cursor: not-allowed;
         }
 
@@ -319,105 +721,166 @@
         .booking-form {
             background: var(--white);
             border-radius: var(--radius-lg);
-            padding: 30px;
+            padding: 40px;
             box-shadow: var(--shadow);
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .booking-form:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+        }
+        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
+        
         .form-label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--dark);
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.05rem;
         }
+        
         .form-input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 16px 20px;
             border: 2px solid var(--border);
             border-radius: var(--radius-md);
-            font-size: 1rem;
+            font-size: 1.05rem;
             transition: var(--transition);
             background: var(--white);
             color: var(--dark);
         }
+        
         .form-input:focus {
-            border-color: var(--primary);
+            border-color: var(--accent);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 4px rgba(201, 168, 106, 0.15);
+            background: #fffefc;
         }
+        
         .form-textarea {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
         }
 
         /* Resumen de reserva */
         .booking-summary {
-            background: var(--light);
+            background: linear-gradient(135deg, #fcfaf6 0%, #f9f5f0 100%);
             border-radius: var(--radius-lg);
-            padding: 25px;
-            border-left: 5px solid var(--primary);
-            margin-bottom: 30px;
+            padding: 30px;
+            border-left: 5px solid var(--accent);
+            margin-bottom: 40px;
             border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
         }
+        
         .summary-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
+        
         .summary-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
             border-bottom: 1px dashed var(--border);
+            align-items: center;
         }
+        
         .summary-item:last-child {
             border-bottom: none;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            padding-top: 10px;
+            margin-top: 10px;
+            border-top: 2px solid var(--border);
         }
+        
         .summary-label {
             font-weight: 600;
+            color: var(--dark);
         }
 
-        /* Botones */
+        /* Botones premium */
         .btn-primary {
             background: var(--primary);
             color: var(--white);
             border: none;
-            padding: 14px 28px;
+            padding: 18px 36px;
             border-radius: var(--radius-md);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             width: 100%;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(10, 10, 10, 0.2);
         }
+        
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.6s;
+        }
+        
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(10, 10, 10, 0.3);
         }
+        
+        .btn-primary:hover:before {
+            left: 100%;
+        }
+        
         .btn-primary:disabled {
             background: var(--gray);
             cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
+        
         .btn-secondary {
-            background: var(--white);
+            background: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
-            padding: 12px 24px;
+            padding: 14px 30px;
             border-radius: var(--radius-md);
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            letter-spacing: 0.3px;
         }
+        
         .btn-secondary:hover {
             background: var(--primary);
             color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(10, 10, 10, 0.15);
         }
 
         /* Panel de administración */
@@ -425,33 +888,40 @@
             background: var(--white);
             border: 2px solid var(--primary);
             border-radius: var(--radius-lg);
-            padding: 25px;
-            margin: 30px 0;
+            padding: 35px;
+            margin: 40px 0;
             display: none;
+            box-shadow: var(--shadow);
         }
+        
         .admin-panel.visible {
             display: block;
         }
+        
         .admin-tabs {
             display: flex;
             border-bottom: 2px solid var(--border);
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
+        
         .admin-tab {
-            padding: 12px 24px;
+            padding: 16px 32px;
             cursor: pointer;
             font-weight: 600;
             border-bottom: 3px solid transparent;
             transition: var(--transition);
             color: var(--dark);
         }
+        
         .admin-tab.active {
-            border-bottom-color: var(--primary);
+            border-bottom-color: var(--accent);
             color: var(--primary);
         }
+        
         .tab-content {
             display: none;
         }
+        
         .tab-content.active {
             display: block;
         }
@@ -460,216 +930,341 @@
         .appointments-list {
             max-height: 500px;
             overflow-y: auto;
+            padding-right: 10px;
         }
+        
+        .appointments-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .appointments-list::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .appointments-list::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
         .appointment-item {
             background: var(--light);
             border-radius: var(--radius-md);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--primary);
+            padding: 22px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--accent);
             display: flex;
             justify-content: space-between;
             align-items: center;
             border: 1px solid var(--border);
+            transition: var(--transition);
         }
+        
+        .appointment-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        
         .appointment-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        .appointment-time {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: var(--primary);
             font-weight: 700;
-            font-size: 1.2rem;
         }
+        
+        .appointment-time {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        
         .appointment-client {
             color: var(--dark);
             font-weight: 600;
+            margin-bottom: 6px;
         }
+        
         .appointment-actions button {
             background: var(--danger);
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: var(--radius-md);
             cursor: pointer;
             font-weight: 600;
-        }
-
-        /* QR y Compartir */
-        .qr-section {
-            text-align: center;
-            padding: 30px;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-            border: 1px solid var(--border);
-        }
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 20px auto;
-            background: var(--light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-md);
-            font-size: 5rem;
-            color: var(--primary);
-            border: 1px solid var(--border);
-        }
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .share-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
             transition: var(--transition);
         }
-        .share-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        
+        .appointment-actions button:hover {
+            background: #b30000;
+            transform: scale(1.05);
         }
-        .share-btn.whatsapp { background: #25D366; }
-        .share-btn.facebook { background: #1877F2; }
-        .share-btn.link { background: var(--secondary); }
 
-        /* Contacto */
+        /* Contacto elegante */
         .contact-info {
-            background: var(--light);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             border-radius: var(--radius-lg);
-            padding: 25px;
-            margin-top: 30px;
+            padding: 50px;
+            margin-top: 60px;
             text-align: center;
-            border: 1px solid var(--border);
+            border: 1px solid rgba(255,255,255,0.05);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .contact-info:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gold-gradient);
+        }
+        
         .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
+            color: var(--white);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        
         .contact-info p {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            font-size: 1.1rem;
+            color: var(--accent-light);
         }
+        
         .contact-info i {
-            color: var(--primary);
+            color: var(--accent);
+            font-size: 1.3rem;
+            width: 24px;
         }
 
-        /* Modal y notificaciones */
+        /* Modal elegante */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
             display: none;
             align-items: center;
             justify-content: center;
-            z-index: 2000;
+            z-index: 3000;
             padding: 20px;
         }
+        
         .modal.active {
             display: flex;
         }
+        
         .modal-content {
             background: var(--white);
             width: 100%;
-            max-width: 500px;
-            padding: 30px;
+            max-width: 520px;
+            padding: 40px;
             border-radius: var(--radius-lg);
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
             border: 1px solid var(--border);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            animation: modalAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
+            top: 20px;
+            right: 25px;
+            font-size: 2.2rem;
             cursor: pointer;
             color: var(--gray);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .modal-close:hover {
+            color: var(--danger);
+            background: rgba(204, 51, 51, 0.1);
+            transform: rotate(90deg);
         }
 
+        /* Notificación */
         #notification {
             position: fixed;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: var(--success);
             color: white;
-            padding: 12px 30px;
+            padding: 16px 36px;
             border-radius: 50px;
-            z-index: 3000;
+            z-index: 4000;
             transition: var(--transition);
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
+        
         #notification.show {
             transform: translateX(-50%) translateY(0);
         }
+        
+        #notification.error {
+            background: var(--danger);
+            box-shadow: 0 10px 30px rgba(204, 51, 51, 0.4);
+        }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 1.8rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .calendar-grid { gap: 5px; }
-            .calendar-day { font-size: 0.9rem; }
-            .time-slots { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-            .logo h1 { font-size: 1.2rem; }
-            .logo-img { height: 40px; }
+        @media (max-width: 1024px) {
+            .hero h2 { font-size: 2.8rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
         }
+        
+        @media (max-width: 768px) {
+            .hero { padding: 60px 20px; }
+            .hero h2 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .calendar-grid { gap: 6px; }
+            .calendar-day { font-size: 0.9rem; }
+            .time-slots { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+            .header-content { flex-wrap: wrap; }
+            .social-icons { order: 3; width: 100%; justify-content: center; margin-top: 15px; }
+            .calendar-container, .booking-form { padding: 25px; }
+            .contact-info { padding: 35px 25px; }
+        }
+        
         @media (max-width: 480px) {
-            .header-content { flex-direction: column; gap: 15px; }
-            .hero { padding: 30px 15px; }
-            .calendar-container { padding: 15px; }
-            .logo { flex-direction: column; text-align: center; gap: 8px; }
+            .header-content { flex-direction: column; gap: 20px; }
+            .logo { flex-direction: column; text-align: center; gap: 12px; }
+            .social-icons { order: 2; width: auto; margin-top: 0; }
+            .cart-btn { order: 3; }
+            .hero { padding: 50px 15px; }
+            .qr-section { padding: 40px 20px; }
+            .qr-banner { padding: 20px; }
+            .section-title { font-size: 1.8rem; }
         }
 
         /* Estados de carga */
         .loading {
             text-align: center;
-            padding: 40px;
+            padding: 60px;
             color: var(--gray);
         }
+        
         .loading i {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            animation: spin 1s linear infinite;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            animation: spin 1.5s linear infinite;
         }
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .services-section, .calendar-section, .booking-form, .qr-section {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .services-section { animation-delay: 0.1s; }
+        .calendar-section { animation-delay: 0.2s; }
+        .booking-form { animation-delay: 0.3s; }
+        .qr-section { animation-delay: 0.4s; }
+        
+        /* Efectos de brillo */
+        .gold-effect {
+            position: relative;
+        }
+        
+        .gold-effect:after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gold-gradient);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .gold-effect:hover:after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-    <!-- Cabecera -->
+    <!-- Cabecera elegante con redes sociales -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Feli_Style Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Feli_Style</h1>
-                    <span>Barbería Profesional</span>
+                    <span>Barbería de Excelencia</span>
                 </div>
             </div>
+            
+            <div class="social-icons">
+                <a href="https://wa.me/5491123517823" target="_blank" class="social-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            
             <button class="cart-btn" id="cart-btn">
                 <i class="fas fa-calendar-alt"></i>
                 <span id="cart-count">0</span> servicios
@@ -678,46 +1273,61 @@
     </header>
 
     <main class="container">
-        <!-- Hero Section -->
+        <!-- Hero Section Premium -->
         <section class="hero">
-            <h2>Reserva tu Turno en Feli_Style</h2>
-            <p>Elige tus servicios, selecciona fecha y hora disponible, y confirma tu reserva en minutos.</p>
-            <button class="cta-button" onclick="scrollToServices()">Reservar Ahora</button>
+            <div class="hero-content">
+                <h2>Experiencia Barbería Premium</h2>
+                <p>Donde el estilo se encuentra con la excelencia. Reserva tu turno para una experiencia única de cuidado masculino.</p>
+                <button class="cta-button" onclick="scrollToServices()">
+                    <i class="fas fa-scissors"></i> Reservar Turno Premium
+                </button>
+            </div>
         </section>
 
-        <!-- QR Code Section -->
+        <!-- QR Code Section con Logo Banner -->
         <section class="qr-section">
-            <h3 class="section-title">Accede desde tu móvil</h3>
-            <p>Escanéa el código QR para acceder a la agenda desde tu teléfono</p>
-            <div class="qr-code" id="qr-code">
-                <i class="fas fa-qrcode"></i>
+            <div class="qr-banner">
+                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Feli_Style Banner" class="qr-banner-logo">
+                <h3>Feli_Style Barbería</h3>
+                <p>Accede a nuestra agenda exclusiva desde tu dispositivo móvil</p>
             </div>
-            <div class="share-buttons">
-                <button class="share-btn whatsapp" onclick="shareViaWhatsApp()">
-                    <i class="fab fa-whatsapp"></i>
-                </button>
-                <button class="share-btn facebook" onclick="shareViaFacebook()">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
-                <button class="share-btn link" onclick="copyLink()">
-                    <i class="fas fa-link"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- Servicios -->
-        <section class="services-section" id="services">
-            <h3 class="section-title">Nuestros Servicios</h3>
-            <div class="services-grid" id="services-container">
-                <!-- Los servicios se cargarán aquí desde Google Sheets -->
-                <div class="loading">
-                    <i class="fas fa-spinner"></i>
-                    <p>Cargando servicios...</p>
+            
+            <h3 class="section-title">Acceso Rápido</h3>
+            
+            <div class="qr-container">
+                <div class="qr-code-real" id="qrcode"></div>
+                <div class="qr-url" id="qr-url">https://feli-style.vercel.app/</div>
+                
+                <div class="share-buttons">
+                    <button class="share-btn whatsapp" onclick="shareViaWhatsApp()" title="Compartir por WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                    <button class="share-btn facebook" onclick="shareViaFacebook()" title="Compartir en Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button class="share-btn instagram" onclick="shareViaInstagram()" title="Compartir en Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </button>
+                    <button class="share-btn link" onclick="copyLink()" title="Copiar enlace">
+                        <i class="fas fa-link"></i>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Calendario -->
+        <!-- Servicios Premium -->
+        <section class="services-section" id="services">
+            <h3 class="section-title">Nuestros Servicios Exclusivos</h3>
+            <div class="services-grid" id="services-container">
+                <!-- Los servicios se cargarán aquí -->
+                <div class="loading">
+                    <i class="fas fa-spinner"></i>
+                    <p>Cargando servicios premium...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendario Elegante -->
         <section class="calendar-section">
             <h3 class="section-title">Selecciona Fecha y Hora</h3>
             
@@ -736,16 +1346,18 @@
             </div>
 
             <div class="calendar-container" id="time-slots-container" style="display: none;">
-                <h4 style="margin-bottom: 15px;">Horarios disponibles para <span id="selected-date"></span></h4>
+                <h4 style="margin-bottom: 20px; color: var(--primary); font-family: 'Playfair Display', serif;">
+                    <i class="fas fa-clock"></i> Horarios disponibles para <span id="selected-date"></span>
+                </h4>
                 <div class="time-slots" id="time-slots">
                     <!-- Los horarios se generarán dinámicamente -->
                 </div>
             </div>
         </section>
 
-        <!-- Formulario de Reserva -->
+        <!-- Formulario de Reserva Premium -->
         <section class="booking-form" id="booking-form" style="display: none;">
-            <h3 class="section-title">Completa tus Datos</h3>
+            <h3 class="section-title">Confirmación de Reserva</h3>
             
             <div class="booking-summary" id="booking-summary">
                 <!-- Resumen de la reserva -->
@@ -753,7 +1365,7 @@
 
             <div class="form-group">
                 <label class="form-label">Nombre Completo *</label>
-                <input type="text" class="form-input" id="client-name" placeholder="Tu nombre y apellido" required>
+                <input type="text" class="form-input" id="client-name" placeholder="Ingresa tu nombre completo" required>
             </div>
 
             <div class="form-group">
@@ -763,23 +1375,26 @@
 
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-input" id="client-email" placeholder="tu@email.com">
+                <input type="email" class="form-input" id="client-email" placeholder="tu.email@ejemplo.com">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Notas adicionales (opcional)</label>
-                <textarea class="form-input form-textarea" id="client-notes" placeholder="Alguna indicación especial para tu servicio..."></textarea>
+                <label class="form-label">Notas especiales (opcional)</label>
+                <textarea class="form-input form-textarea" id="client-notes" placeholder="¿Alguna preferencia especial para tu servicio?"></textarea>
             </div>
 
-            <button class="btn-primary" id="confirm-booking" onclick="confirmBooking()">Confirmar Reserva</button>
+            <button class="btn-primary" id="confirm-booking" onclick="confirmBooking()">
+                <i class="fas fa-check-circle"></i> Confirmar Reserva Premium
+            </button>
         </section>
 
-        <!-- Información de Contacto -->
+        <!-- Información de Contacto Elegante -->
         <section class="contact-info">
-            <h3>Contacto</h3>
+            <h3>Contacto Exclusivo</h3>
             <p><i class="fas fa-phone-alt"></i> Teléfono: 011-2351-7823</p>
             <p><i class="fas fa-envelope"></i> Email: diegonahuel011@gmail.com</p>
             <p><i class="fas fa-map-marker-alt"></i> Dirección: Enrique Dunant entre General Las Heras y El Salvador</p>
+            <p><i class="fas fa-clock"></i> Horarios: Lunes a Sábado 9:00 - 19:00</p>
         </section>
 
         <!-- Panel de Administración -->
@@ -807,52 +1422,65 @@
             </div>
 
             <div class="tab-content" id="tab-settings">
-                <h3>Configuración</h3>
+                <h3>Configuración Premium</h3>
                 <div class="form-group">
                     <label class="form-label">Teléfono para WhatsApp</label>
-                    <input type="text" class="form-input" id="whatsapp-number" placeholder="Ej: 5491112345678">
+                    <input type="text" class="form-input" id="whatsapp-number" placeholder="Ej: 5491123517823">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Horarios de atención</label>
-                    <input type="text" class="form-input" id="business-hours" placeholder="Ej: Lunes a Viernes 9:00-18:00">
+                    <input type="text" class="form-input" id="business-hours" placeholder="Ej: Lunes a Sábado 9:00-19:00">
                 </div>
                 <button class="btn-primary" onclick="saveSettings()">Guardar Configuración</button>
             </div>
         </div>
 
         <!-- Botón de acceso admin -->
-        <div style="text-align: center; margin: 30px 0;">
-            <button class="btn-secondary" onclick="checkAdminAccess()">Acceso Administración</button>
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="btn-secondary" onclick="checkAdminAccess()">
+                <i class="fas fa-user-shield"></i> Acceso Administración
+            </button>
         </div>
     </main>
 
-    <!-- Modal de Login -->
+    <!-- Modal de Login Elegante -->
     <div class="modal" id="login-modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('login-modal')">&times;</span>
-            <h3 style="text-align: center; margin-bottom: 20px;">Acceso Administrador</h3>
-            <div class="form-group">
-                <label class="form-label">Usuario</label>
-                <input type="text" class="form-input" id="admin-user" placeholder="admin">
+            <div style="text-align: center;">
+                <div style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 style="margin-bottom: 25px; font-family: 'Playfair Display', serif;">Acceso Administrador</h3>
+                <div class="form-group">
+                    <label class="form-label">Usuario</label>
+                    <input type="text" class="form-input" id="admin-user" placeholder="admin">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-input" id="admin-pass" placeholder="••••••••">
+                </div>
+                <button class="btn-primary" onclick="loginAdmin()">Ingresar al Panel</button>
             </div>
-            <div class="form-group">
-                <label class="form-label">Contraseña</label>
-                <input type="password" class="form-input" id="admin-pass" placeholder="••••••••">
-            </div>
-            <button class="btn-primary" onclick="loginAdmin()">Ingresar</button>
         </div>
     </div>
 
-    <!-- Modal de Confirmación -->
+    <!-- Modal de Confirmación Elegante -->
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('confirmation-modal')">&times;</span>
             <div style="text-align: center; padding: 20px;">
-                <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--success); margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 15px;">¡Reserva Confirmada!</h3>
-                <p id="confirmation-details"></p>
-                <p style="margin-top: 20px; font-weight: 600;">Recibirás un recordatorio por WhatsApp.</p>
-                <button class="btn-primary" onclick="closeModal('confirmation-modal'); location.reload();" style="margin-top: 20px;">Nueva Reserva</button>
+                <div style="font-size: 5rem; color: var(--success); margin-bottom: 20px; animation: pulse 2s infinite;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 style="margin-bottom: 15px; font-family: 'Playfair Display', serif;">¡Reserva Confirmada!</h3>
+                <p id="confirmation-details" style="font-size: 1.1rem; line-height: 1.6;"></p>
+                <p style="margin-top: 25px; font-weight: 600; color: var(--accent);">
+                    <i class="fab fa-whatsapp"></i> Recibirás un recordatorio por WhatsApp.
+                </p>
+                <button class="btn-primary" onclick="closeModal('confirmation-modal'); location.reload();" style="margin-top: 30px;">
+                    <i class="fas fa-plus"></i> Nueva Reserva
+                </button>
             </div>
         </div>
     </div>
@@ -864,23 +1492,24 @@
         // CONFIGURACIÓN
         const CONFIG = {
             ADMIN: { user: "admin", pass: "feli123" },
-            STORAGE_KEY: "feli_style_agenda",
-            APPOINTMENTS_KEY: "feli_style_turnos",
-            SETTINGS_KEY: "feli_style_config",
+            STORAGE_KEY: "feli_style_agenda_premium",
+            APPOINTMENTS_KEY: "feli_style_turnos_premium",
+            SETTINGS_KEY: "feli_style_config_premium",
             DEFAULT_SERVICES: [
-                { id: '1', name: 'Corte de Cabello', description: 'Corte profesional con lavado incluido', duration: 45, price: 9000, category: 'Cortes' },
-                { id: '2', name: 'Corte Niños (hasta 11 años)', description: 'Corte especial para niños', duration: 30, price: 7000, category: 'Cortes' },
-                { id: '3', name: 'Arreglo de Barba', description: 'Perfilado y arreglo completo de barba', duration: 30, price: 2000, category: 'Barba' },
-                { id: '4', name: 'Afeitado Completo', description: 'Afeitado tradicional con navaja', duration: 40, price: 3000, category: 'Barba' },
-                { id: '5', name: 'Perfilado de Ceja', description: 'Diseño y perfilado de cejas', duration: 20, price: 2000, category: 'Estética' }
+                { id: '1', name: 'Corte de Cabello Premium', description: 'Corte profesional con lavado, tratamiento y peinado', duration: 50, price: 9000, category: 'Cortes' },
+                { id: '2', name: 'Corte Niños (hasta 11 años)', description: 'Corte especial para niños con ambiente amigable', duration: 35, price: 7000, category: 'Cortes' },
+                { id: '3', name: 'Arreglo de Barba Completo', description: 'Perfilado, recorte y tratamiento para barba', duration: 35, price: 2000, category: 'Barba' },
+                { id: '4', name: 'Afeitado Tradicional', description: 'Afeitado con navaja caliente y productos premium', duration: 45, price: 3000, category: 'Barba' },
+                { id: '5', name: 'Perfilado de Ceja', description: 'Diseño y perfilado profesional de cejas', duration: 25, price: 2000, category: 'Estética' },
+                { id: '6', name: 'Corte + Barba', description: 'Combo completo: corte y arreglo de barba', duration: 80, price: 10000, category: 'Combos' }
             ]
         };
 
         // HORARIOS DE TRABAJO
         const BUSINESS_HOURS = {
-            start: 9,    // 9:00 AM
-            end: 19,     // 7:00 PM
-            interval: 30 // minutos
+            start: 9,
+            end: 19,
+            interval: 30
         };
 
         // VARIABLES GLOBALES
@@ -900,7 +1529,14 @@
             renderServices();
             initCalendar();
             setupEventListeners();
-            generateQRCode();
+            generateRealQRCode();
+            
+            // Efecto de aparición gradual
+            setTimeout(() => {
+                document.querySelectorAll('section').forEach((section, index) => {
+                    section.style.animationDelay = `${index * 0.2}s`;
+                });
+            }, 100);
         });
 
         // CARGAR CONFIGURACIÓN
@@ -918,7 +1554,37 @@
                 businessHours: document.getElementById('business-hours').value
             };
             localStorage.setItem(CONFIG.SETTINGS_KEY, JSON.stringify(settings));
-            showNotification("Configuración guardada");
+            showNotification("Configuración guardada exitosamente");
+        }
+
+        // QR CODE REAL
+        function generateRealQRCode() {
+            const currentUrl = window.location.href;
+            document.getElementById('qr-url').textContent = currentUrl;
+            
+            // Limpiar contenedor
+            document.getElementById('qrcode').innerHTML = '';
+            
+            // Generar QR con la librería
+            QRCode.toCanvas(document.getElementById('qrcode'), currentUrl, {
+                width: 190,
+                height: 190,
+                margin: 1,
+                color: {
+                    dark: '#0a0a0a',
+                    light: '#ffffff'
+                }
+            }, function(error) {
+                if (error) {
+                    console.error("Error generando QR:", error);
+                    document.getElementById('qrcode').innerHTML = `
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                            <i class="fas fa-qrcode" style="font-size: 4rem; color: var(--accent);"></i>
+                            <div style="font-size: 0.7rem; margin-top: 10px; color: var(--gray);">${currentUrl}</div>
+                        </div>
+                    `;
+                }
+            });
         }
 
         // CARGAR Y SINCRONIZAR SERVICIOS
@@ -968,7 +1634,7 @@
             let html = '';
             categories.forEach(category => {
                 const categoryServices = services.filter(s => s.category === category);
-                html += `<h4 style="grid-column: 1/-1; margin-top: 20px; color: var(--dark); border-bottom: 2px solid var(--border); padding-bottom: 10px;">${category}</h4>`;
+                html += `<h4 style="grid-column: 1/-1; margin-top: 30px; color: var(--primary); border-bottom: 2px solid var(--accent-light); padding-bottom: 12px; font-family: 'Playfair Display', serif;">${category}</h4>`;
                 
                 categoryServices.forEach(service => {
                     const isSelected = selectedServices.some(s => s.id === service.id);
@@ -978,7 +1644,7 @@
                             <i class="fas fa-${getServiceIcon(service.category)}"></i>
                         </div>
                         <div class="service-name">${service.name}</div>
-                        <div class="service-price">$${service.price}</div>
+                        <div class="service-price">$${service.price.toLocaleString('es-AR')}</div>
                         <div class="service-desc">${service.description}</div>
                         <div class="service-duration">${service.duration} min</div>
                     </div>
@@ -995,6 +1661,7 @@
                 'Cortes': 'cut',
                 'Barba': 'user-tie',
                 'Estética': 'eye',
+                'Combos': 'crown',
                 'General': 'scissors'
             };
             return icons[category] || 'scissors';
@@ -1089,7 +1756,7 @@
             today.setHours(0, 0, 0, 0);
             
             if (date < today) {
-                showNotification("No se pueden seleccionar fechas pasadas");
+                showNotification("No se pueden seleccionar fechas pasadas", true);
                 return;
             }
             
@@ -1098,6 +1765,12 @@
             document.getElementById('selected-date').textContent = formatDateDisplay(date);
             document.getElementById('time-slots-container').style.display = 'block';
             generateTimeSlots();
+            
+            // Scroll suave
+            document.getElementById('time-slots-container').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
 
         function generateTimeSlots() {
@@ -1166,7 +1839,12 @@
             generateTimeSlots();
             document.getElementById('booking-form').style.display = 'block';
             updateBookingSummary();
-            document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
+            
+            // Scroll suave al formulario
+            document.getElementById('booking-form').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
 
         // RESERVA
@@ -1175,9 +1853,9 @@
             const totalPrice = selectedServices.reduce((sum, s) => sum + s.price, 0);
             
             let html = `
-                <div class="summary-title">Resumen de tu Reserva</div>
+                <div class="summary-title">Resumen de tu Reserva Premium</div>
                 <div class="summary-item">
-                    <span class="summary-label">Servicios:</span>
+                    <span class="summary-label">Servicios seleccionados:</span>
                     <span>${selectedServices.length}</span>
                 </div>
             `;
@@ -1186,7 +1864,7 @@
                 html += `
                     <div class="summary-item">
                         <span>${service.name}</span>
-                        <span>$${service.price}</span>
+                        <span>$${service.price.toLocaleString('es-AR')}</span>
                     </div>
                 `;
             });
@@ -1205,8 +1883,8 @@
                     <span>${totalDuration} min</span>
                 </div>
                 <div class="summary-item">
-                    <span class="summary-label">Total:</span>
-                    <span>$${totalPrice}</span>
+                    <span class="summary-label">Total a pagar:</span>
+                    <span>$${totalPrice.toLocaleString('es-AR')}</span>
                 </div>
             `;
             
@@ -1215,12 +1893,12 @@
 
         function confirmBooking() {
             if (selectedServices.length === 0) {
-                showNotification("Selecciona al menos un servicio");
+                showNotification("Por favor, selecciona al menos un servicio", true);
                 return;
             }
             
             if (!selectedDate || !selectedTime) {
-                showNotification("Selecciona fecha y hora");
+                showNotification("Por favor, selecciona fecha y hora", true);
                 return;
             }
             
@@ -1228,7 +1906,14 @@
             const phone = document.getElementById('client-phone').value.trim();
             
             if (!name || !phone) {
-                showNotification("Completa nombre y teléfono");
+                showNotification("Por favor, completa tu nombre y teléfono", true);
+                return;
+            }
+            
+            // Validar teléfono
+            const phoneRegex = /^[0-9\s\-\+\(\)]{8,20}$/;
+            if (!phoneRegex.test(phone)) {
+                showNotification("Por favor, ingresa un número de teléfono válido", true);
                 return;
             }
             
@@ -1265,29 +1950,30 @@
             const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
             const phone = settings.whatsappNumber || "5491123517823";
             
-            const servicesList = appointment.services.map(s => `• ${s.name}: $${s.price}`).join('%0A');
-            const message = `✂️ *NUEVO TURNO AGENDADO - Feli_Style* ✂️%0A%0A` +
+            const servicesList = appointment.services.map(s => `• ${s.name}: $${s.price.toLocaleString('es-AR')}`).join('%0A');
+            const message = `✨ *NUEVO TURNO AGENDADO - Feli_Style Barbería* ✨%0A%0A` +
                           `*Cliente:* ${appointment.client.name}%0A` +
                           `*Teléfono:* ${appointment.client.phone}%0A` +
                           `*Fecha:* ${formatDateDisplay(new Date(appointment.date))}%0A` +
                           `*Hora:* ${appointment.time}%0A` +
                           `*Duración:* ${appointment.duration} min%0A%0A` +
                           `*Servicios:*%0A${servicesList}%0A%0A` +
-                          `*Total:* $${appointment.total}%0A%0A` +
+                          `*Total:* $${appointment.total.toLocaleString('es-AR')}%0A%0A` +
                           `*Notas:* ${appointment.client.notes || 'Ninguna'}%0A%0A` +
-                          `*Dirección:* Enrique Dunant entre General Las Heras y El Salvador`;
+                          `*Dirección:* Enrique Dunant entre General Las Heras y El Salvador%0A` +
+                          `*Teléfono:* 011-2351-7823`;
             
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         function showConfirmation(appointment) {
             const details = `
-                <strong>${appointment.client.name}</strong>, tu turno ha sido confirmado.<br><br>
+                <strong>${appointment.client.name}</strong>, tu turno ha sido confirmado exitosamente.<br><br>
                 📅 <strong>Fecha:</strong> ${formatDateDisplay(new Date(appointment.date))}<br>
                 ⏰ <strong>Hora:</strong> ${appointment.time}<br>
-                ⏱️ <strong>Duración:</strong> ${appointment.duration} minutos<br>
-                💰 <strong>Total:</strong> $${appointment.total}<br><br>
-                Te esperamos en Feli_Style Barbería.
+                ⏱️ <strong>Duración estimada:</strong> ${appointment.duration} minutos<br>
+                💰 <strong>Total:</strong> $${appointment.total.toLocaleString('es-AR')}<br><br>
+                <em>Te esperamos en Feli_Style Barbería para brindarte una experiencia premium.</em>
             `;
             
             document.getElementById('confirmation-details').innerHTML = details;
@@ -1341,7 +2027,12 @@
             const container = document.getElementById('appointments-list');
             
             if (appointments.length === 0) {
-                container.innerHTML = '<p style="text-align: center; padding: 20px; color: var(--gray);">No hay turnos programados</p>';
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--gray);">
+                        <i class="fas fa-calendar-check" style="font-size: 3rem; margin-bottom: 20px; color: var(--accent-light);"></i>
+                        <p style="font-size: 1.1rem;">No hay turnos programados</p>
+                    </div>
+                `;
                 return;
             }
             
@@ -1357,10 +2048,13 @@
                             <h4>${servicesList}</h4>
                             <div class="appointment-time">${formatDateDisplay(new Date(app.date))} - ${app.time}</div>
                             <div class="appointment-client">${app.client.name} | ${app.client.phone}</div>
-                            <div>Duración: ${app.duration}min | Total: $${app.total}</div>
+                            <div>Duración: ${app.duration}min | Total: $${app.total.toLocaleString('es-AR')}</div>
+                            ${app.client.notes ? `<div style="margin-top: 8px; font-style: italic; color: var(--gray);">Notas: ${app.client.notes}</div>` : ''}
                         </div>
                         <div class="appointment-actions">
-                            <button onclick="cancelAppointment('${app.id}')">Cancelar</button>
+                            <button onclick="cancelAppointment('${app.id}')">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
                         </div>
                     </div>
                 `;
@@ -1370,12 +2064,12 @@
         }
 
         function cancelAppointment(appointmentId) {
-            if (confirm("¿Estás seguro de cancelar este turno?")) {
+            if (confirm("¿Estás seguro de cancelar este turno? Esta acción no se puede deshacer.")) {
                 appointments = appointments.filter(a => a.id !== appointmentId);
                 localStorage.setItem(CONFIG.APPOINTMENTS_KEY, JSON.stringify(appointments));
                 loadAppointmentsList();
-                renderCalendar(); // Actualizar calendario
-                showNotification("Turno cancelado");
+                renderCalendar();
+                showNotification("Turno cancelado exitosamente");
             }
         }
 
@@ -1393,20 +2087,10 @@
             document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
         }
 
-        // QR Y COMPARTIR
-        function generateQRCode() {
-            const currentUrl = window.location.href;
-            // En un entorno real, usarías una librería como qrcode.js
-            // Aquí usamos un placeholder
-            document.getElementById('qr-code').innerHTML = `
-                <i class="fas fa-qrcode"></i>
-                <div style="font-size: 0.8rem; margin-top: 10px; color: var(--gray);">${currentUrl}</div>
-            `;
-        }
-
+        // COMPARTIR
         function shareViaWhatsApp() {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent("¡Reserva tu turno en Feli_Style Barbería! Agenda online fácil y rápida.");
+            const text = encodeURIComponent("✨ ¡Reserva tu turno en Feli_Style Barbería! ✨\nExperiencia premium de cuidado masculino.\nAgenda online fácil y rápida.");
             window.open(`https://wa.me/?text=${text}%0A%0A${url}`, '_blank');
         }
 
@@ -1415,10 +2099,19 @@
             window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
         }
 
+        function shareViaInstagram() {
+            showNotification("Comparte nuestro enlace en Instagram: https://feli-style.vercel.app/");
+            copyLink();
+        }
+
         function copyLink() {
-            navigator.clipboard.writeText(window.location.href)
-                .then(() => showNotification("Link copiado al portapapeles"))
-                .catch(err => console.error('Error copiando:', err));
+            const url = window.location.href;
+            navigator.clipboard.writeText(url)
+                .then(() => showNotification("¡Enlace copiado al portapapeles!"))
+                .catch(err => {
+                    console.error('Error copiando:', err);
+                    showNotification("Error al copiar el enlace", true);
+                });
         }
 
         // UTILIDADES
@@ -1474,18 +2167,22 @@
         }
 
         function scrollToServices() {
-            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('services').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
 
         function showNotification(message, isError = false) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
-            notification.style.background = isError ? 'var(--danger)' : 'var(--success)';
-            notification.classList.add('show');
+            notification.className = '';
+            notification.classList.add(isError ? 'error' : 'show');
+            if (!isError) notification.classList.add('show');
             
             setTimeout(() => {
                 notification.classList.remove('show');
-            }, 3000);
+            }, 4000);
         }
 
         function closeModal(modalId) {
@@ -1497,6 +2194,7 @@
             document.getElementById('client-name').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') document.getElementById('confirm-booking').click();
             });
+            
             document.getElementById('client-phone').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') document.getElementById('confirm-booking').click();
             });
@@ -1507,6 +2205,19 @@
                     closeModal('login-modal');
                     closeModal('confirmation-modal');
                 }
+            });
+            
+            // Efectos de hover en botones
+            document.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = 'translateY(0)';
+                    }
+                });
             });
         }
     </script>
