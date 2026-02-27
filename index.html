@@ -1273,7 +1273,7 @@
             </div>
             
             <div class="social-icons">
-                <a href="https://wa.me/5491123517823" target="_blank" class="social-icon whatsapp">
+                <a href="https://wa.me/5491123517723" target="_blank" class="social-icon whatsapp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
                 <a href="https://facebook.com" target="_blank" class="social-icon facebook">
@@ -1410,9 +1410,9 @@
         <!-- Información de Contacto Elegante -->
         <section class="contact-info">
             <h3>Contacto Exclusivo</h3>
-            <p><i class="fas fa-phone-alt"></i> Teléfono: 011-2351-7823</p>
+            <p><i class="fas fa-phone-alt"></i> Teléfono: 011-2351-7723</p>
             <p><i class="fas fa-envelope"></i> Email: diegonahuel011@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Dirección: Enrique Dunant entre General Las Heras y El Salvador</p>
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Enrique Dunant 626 entre Las Heras y El Salvador</p>
             <p><i class="fas fa-clock"></i> Horarios: Lunes a Sábado 9:00 - 19:00</p>
         </section>
 
@@ -1444,7 +1444,7 @@
                 <h3>Configuración Premium</h3>
                 <div class="form-group">
                     <label class="form-label">Teléfono para WhatsApp</label>
-                    <input type="text" class="form-input" id="whatsapp-number" placeholder="Ej: 5491123517823">
+                    <input type="text" class="form-input" id="whatsapp-number" placeholder="Ej: 5491123517723">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Horarios de atención</label>
@@ -1562,7 +1562,7 @@
         function loadSettings() {
             const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
             document.getElementById('sheet-url').value = settings.sheetUrl || "";
-            document.getElementById('whatsapp-number').value = settings.whatsappNumber || "5491123517823";
+            document.getElementById('whatsapp-number').value = settings.whatsappNumber || "5491123517723";
             document.getElementById('business-hours').value = settings.businessHours || "Lunes a Sábado 9:00-19:00";
         }
 
@@ -1967,7 +1967,7 @@
 
         function sendWhatsAppNotification(appointment) {
             const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            const phone = settings.whatsappNumber || "5491123517823";
+            const phone = settings.whatsappNumber || "5491123517723";
             
             const servicesList = appointment.services.map(s => `• ${s.name}: $${s.price.toLocaleString('es-AR')}`).join('%0A');
             const message = `✨ *NUEVO TURNO AGENDADO - Feli_Style Barbería* ✨%0A%0A` +
