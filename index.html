@@ -1873,7 +1873,7 @@
             const totalPrice = selectedServices.reduce((sum, s) => sum + s.price, 0);
             
             let html = `
-                <div class="summary-title">Resumen de tu Reserva Premium</div>
+                <div class="summary-title">Resumen de tu Reserva </div>
                 <div class="summary-item">
                     <span class="summary-label">Servicios seleccionados:</span>
                     <span>${selectedServices.length}</span>
@@ -1967,24 +1967,29 @@
         }
 
         function sendWhatsAppNotification(appointment) {
-            const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            const phone = settings.whatsappNumber || "5491123517723";
-            
-            const servicesList = appointment.services.map(s => `• ${s.name}: $${s.price.toLocaleString('es-AR')}`).join('%0A');
-            const message = `✨ *NUEVO TURNO AGENDADO - Feli_Style Barbería* ✨%0A%0A` +
-                          `*Cliente:* ${appointment.client.name}%0A` +
-                          `*Teléfono:* ${appointment.client.phone}%0A` +
-                          `*Fecha:* ${formatDateDisplay(new Date(appointment.date))}%0A` +
-                          `*Hora:* ${appointment.time}%0A` +
-                          `*Duración:* ${appointment.duration} min%0A%0A` +
-                          `*Servicios:*%0A${servicesList}%0A%0A` +
-                          `*Total:* $${appointment.total.toLocaleString('es-AR')}%0A%0A` +
-                          `*Notas:* ${appointment.client.notes || 'Ninguna'}%0A%0A` +
-                          `*Dirección:* Enrique Dunant entre General Las Heras y El Salvador%0A` +
-                          `*Teléfono:* 011-2351-7823`;
-            
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-        }
+    const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
+    const phone = settings.whatsappNumber || "5491123517723";
+
+    // Crear una lista de servicios más limpia
+    const servicesList = appointment.services.map(s => `✧ ${s.name}`).join('%0A');
+
+    // --- NUEVO MENSAJE CORREGIDO Y ELEGANTE ---
+    const message = `*✂️ FELI_STYLE BARBERÍA - RESERVA CONFIRMADA ✂️*%0A%0A` +
+                    `Hola *${appointment.client.name}*, gracias por agendar con nosotros. Te esperamos para brindarte una experiencia premium.%0A%0A` +
+                    `*————————— DETALLE DE TU RESERVA —————————*%0A` +
+                    `📅 *Fecha:* ${formatDateDisplay(new Date(appointment.date))}%0A` +
+                    `⏰ *Hora:* ${appointment.time} hs%0A` +
+                    `⏱️ *Duración:* ${appointment.duration} minutos%0A` +
+                    `💈 *Servicios:*%0A${servicesList}%0A` +
+                    `💰 *Total:* $${appointment.total.toLocaleString('es-AR')}%0A` +
+                    `*———————————————————————————————————————*%0A%0A` +
+                    `📍 *Dirección:* Enrique Dunant 626 (entre Las Heras y El Salvador)%0A` +
+                    `📞 *Teléfono:* 011-2351-7823%0A%0A` +
+                    `_Te recordamos que la puntualidad es parte del estilo. ¡Te esperamos!_ ✨`;
+
+    // Abrir WhatsApp con el mensaje formateado
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
 
         function showConfirmation(appointment) {
             const details = `
