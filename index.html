@@ -611,6 +611,24 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 10px;
             margin-bottom: 25px;
+            /* CORRECCIÓN PARA MÓVILES: Permitir scroll horizontal si es necesario */
+            overflow-x: auto;
+            min-width: 100%;
+        }
+        
+        /* CORRECCIÓN PARA MÓVILES: Asegurar que las celdas mantengan su tamaño */
+        .calendar-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .calendar-grid::-webkit-scrollbar-track {
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .calendar-grid::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
         }
         
         .calendar-day-header {
@@ -623,6 +641,8 @@
             border-radius: var(--radius-sm);
             text-transform: uppercase;
             letter-spacing: 1px;
+            /* CORRECCIÓN PARA MÓVILES: Ancho mínimo */
+            min-width: 80px;
         }
         
         .calendar-day {
@@ -637,6 +657,8 @@
             border: 2px solid transparent;
             background: var(--white);
             color: var(--dark);
+            /* CORRECCIÓN PARA MÓVILES: Ancho mínimo */
+            min-width: 80px;
         }
         
         .calendar-day:hover {
@@ -1194,6 +1216,10 @@
             .qr-banner { padding: 20px; }
             .section-title { font-size: 1.5rem; }
             .hero h2 { font-size: 1.8rem; }
+            /* CORRECCIÓN PARA MÓVILES: Ajuste adicional para días de calendario */
+            .calendar-day-header, .calendar-day {
+                min-width: 70px;
+            }
         }
 
         /* Estados de carga */
@@ -1966,30 +1992,53 @@
             resetBookingForm();
         }
 
+        // CORRECCIÓN: Función corregida para el mensaje de WhatsApp (fecha sin problemas de zona horaria)
         function sendWhatsAppNotification(appointment) {
-    const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-    const phone = settings.whatsappNumber || "5491123517723";
+            const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
+            const phone = settings.whatsappNumber || "5491123517723";
 
-    // Crear una lista de servicios más limpia
-    const servicesList = appointment.services.map(s => `✧ ${s.name}`).join('%0A');
+            // Crear una lista de servicios más limpia
+            const servicesList = appointment.services.map(s => `✧ ${s.name}`).join('%0A');
 
-    // --- NUEVO MENSAJE CORREGIDO Y ELEGANTE ---
-    const message = `*✂️ FELI_STYLE BARBERÍA - RESERVA CONFIRMADA ✂️*%0A%0A` +
-                    `Hola *${appointment.client.name}*, gracias por agendar con nosotros. Te esperamos para brindarte una experiencia premium.%0A%0A` +
-                    `*————————— DETALLE DE TU RESERVA —————————*%0A` +
-                    `📅 *Fecha:* ${formatDateDisplay(new Date(appointment.date))}%0A` +
-                    `⏰ *Hora:* ${appointment.time} hs%0A` +
-                    `⏱️ *Duración:* ${appointment.duration} minutos%0A` +
-                    `💈 *Servicios:*%0A${servicesList}%0A` +
-                    `💰 *Total:* $${appointment.total.toLocaleString('es-AR')}%0A` +
-                    `*———————————————————————————————————————*%0A%0A` +
-                    `📍 *Dirección:* Enrique Dunant 626 (entre Las Heras y El Salvador)%0A` +
-                    `📞 *Teléfono:* 011-2351-7823%0A%0A` +
-                    `_Te recordamos que la puntualidad es parte del estilo. ¡Te esperamos!_ ✨`;
+            // CORRECCIÓN: Formatear la fecha manualmente para evitar problemas de zona horaria
+            // Extraemos año, mes y día directamente de la cadena selectedDate (formato YYYY-MM-DD)
+            const dateParts = appointment.date.split('-');
+            const year = dateParts[0];
+            const month = dateParts[1];
+            const day = dateParts[2];
+            
+            // Array de meses en español
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                              "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            
+            // Array de días de la semana en español
+            const dayNames = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            
+            // Crear una fecha con los componentes para obtener el día de la semana
+            // Esto evita problemas de zona horaria porque usamos UTC
+            const dateObj = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day)));
+            const dayOfWeek = dayNames[dateObj.getUTCDay()];
+            
+            // Formatear fecha: "Jueves 4 de Abril"
+            const formattedDate = `${dayOfWeek} ${parseInt(day)} de ${monthNames[parseInt(month) - 1]}`;
 
-    // Abrir WhatsApp con el mensaje formateado
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-}
+            // Mensaje CORREGIDO con fecha sin problemas de zona horaria
+            const message = `*✂️ FELI_STYLE BARBERÍA - RESERVA CONFIRMADA ✂️*%0A%0A` +
+                            `Hola *${appointment.client.name}*, gracias por agendar con nosotros. Te esperamos para brindarte una experiencia premium.%0A%0A` +
+                            `*————————— DETALLE DE TU RESERVA —————————*%0A` +
+                            `📅 *Fecha:* ${formattedDate}%0A` +
+                            `⏰ *Hora:* ${appointment.time} hs%0A` +
+                            `⏱️ *Duración:* ${appointment.duration} minutos%0A` +
+                            `💈 *Servicios:*%0A${servicesList}%0A` +
+                            `💰 *Total:* $${appointment.total.toLocaleString('es-AR')}%0A` +
+                            `*———————————————————————————————————————*%0A%0A` +
+                            `📍 *Dirección:* Enrique Dunant 626 (entre Las Heras y El Salvador)%0A` +
+                            `📞 *Teléfono:* 011-2351-7823%0A%0A` +
+                            `_Te recordamos que la puntualidad es parte del estilo. ¡Te esperamos!_ ✨`;
+
+            // Abrir WhatsApp con el mensaje formateado
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
 
         function showConfirmation(appointment) {
             const details = `
