@@ -9,24 +9,16 @@
     <meta name="description" content="Agenda online exclusiva para Feli_Style Barbería. Reserva tu turno para corte, arreglo de barba, afeitado y servicios premium.">
     <meta name="keywords" content="barbería, agenda online, turnos, corte de pelo, barba, afeitado, Feli_Style, estilo masculino">
     <meta name="author" content="Feli_Style Barbería">
-    <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Feli_Style Barbería | Reserva Elegante Online">
-    <meta property="og:description" content="Reserva tu turno en la barbería más exclusiva. Cortes, arreglo de barba, afeitado y más servicios premium.">
-    <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Fuente Montserrat - Moderna y profesional -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     
     <style>
         :root {
@@ -39,2261 +31,332 @@
             --light: #f8f8f8;
             --white: #ffffff;
             --gray: #777777;
-            --gray-light: #e5e5e5;
-            --danger: #cc3333;
-            --success: #2ecc71;
             --border: #e0e0e0;
             --radius-lg: 24px;
             --radius-md: 16px;
             --radius-sm: 8px;
             --shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.12);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Montserrat', sans-serif; /* FUENTE PRINCIPAL */
-            -webkit-tap-highlight-color: transparent; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
         
-        body { 
-            background-color: var(--white); 
-            color: var(--dark); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-            width: 100%; 
-            font-weight: 400;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(248, 248, 248, 0.8) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(248, 248, 248, 0.6) 0%, transparent 20%);
-        }
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; font-weight: 400; }
         
-        /* Títulos principales con Poppins */
-        h1, h2, h3, h4, .section-title, .logo h1, .hero h2, .calendar-title, .summary-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
+        h1, h2, h3, h4, .section-title, .logo h1, .hero h2, .calendar-title { font-family: 'Poppins', sans-serif; font-weight: 600; }
         
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 24px; 
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header elegante */
+        /* Header */
         header {
-            background: var(--primary);
-            color: white;
-            padding: 1.4rem 0;
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.15);
-            backdrop-filter: blur(10px);
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--primary); color: white; padding: 1.4rem 0; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.15); backdrop-filter: blur(10px); background: rgba(10, 10, 10, 0.95);
         }
         
-        .header-content { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .logo { 
-            display: flex; 
-            align-items: center; 
-            gap: 16px; 
-        }
-        
-        .logo-img {
-            height: 56px;
-            width: auto;
-            border-radius: var(--radius-sm);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            border: 2px solid var(--accent);
-            transition: var(--transition);
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(201, 168, 106, 0.3);
-        }
-        
-        .logo-text { 
-            display: flex; 
-            flex-direction: column; 
-        }
-        
-        .logo h1 { 
-            font-size: 1.6rem; 
-            font-weight: 700; 
-            letter-spacing: 0.5px; 
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 4px;
-        }
-        
-        .logo span { 
-            font-weight: 300; 
-            font-size: 0.85rem; 
-            color: var(--accent-light);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 16px; }
+        .logo-img { height: 56px; width: auto; border-radius: var(--radius-sm); border: 2px solid var(--accent); }
+        .logo h1 { font-size: 1.6rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo span { font-weight: 300; font-size: 0.85rem; color: var(--accent-light); text-transform: uppercase; }
 
-        /* Iconos de redes sociales en header */
-        .social-icons {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-3px) scale(1.1);
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
+        .social-icons { display: flex; gap: 12px; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); background: rgba(255, 255, 255, 0.08); }
         .social-icon.whatsapp:hover { background: #25D366; }
-        .social-icon.facebook:hover { background: #1877F2; }
-        .social-icon.instagram:hover { 
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
+        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
         .cart-btn { 
-            background: rgba(255,255,255,0.1); 
-            border: 1.5px solid var(--accent);
-            color: var(--white);
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-        
-        .cart-btn:hover { 
-            background: var(--accent); 
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(201, 168, 106, 0.3);
+            background: rgba(255,255,255,0.1); border: 1.5px solid var(--accent); color: var(--white);
+            padding: 10px 22px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 10px;
         }
 
-        /* Hero section premium */
+        /* Hero */
         .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.88)), 
-                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin-bottom: 50px;
-            color: white;
-            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-            position: relative;
-            overflow: hidden;
+            text-align: center; padding: 80px 20px; color: white; margin-bottom: 50px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
+            background-size: cover; background-position: center; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
         }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(201, 168, 106, 0.1) 0%, transparent 50%);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h2 { 
-            font-size: 3rem; 
-            margin-bottom: 20px; 
-            color: var(--white); 
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-        
-        .hero p { 
-            font-size: 1.2rem; 
-            color: var(--accent-light); 
-            max-width: 600px; 
-            margin: 0 auto 30px; 
-            font-weight: 300;
-            letter-spacing: 0.3px;
-            line-height: 1.8;
-        }
-        
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; }
         .cta-button {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 18px 42px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(201, 168, 106, 0.4);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.6s;
-        }
-        
-        .cta-button:hover {
-            background: #e0c989;
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 40px rgba(201, 168, 106, 0.5);
-        }
-        
-        .cta-button:hover:before {
-            left: 100%;
+            background: var(--accent); color: var(--primary); padding: 18px 42px; border-radius: 50px;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); border: none;
         }
 
-        /* Sección QR con logo banner */
-        .qr-section {
-            text-align: center;
-            padding: 60px 30px;
-            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow);
-            margin-bottom: 60px;
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .qr-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-        }
-        
-        .qr-banner {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: var(--primary);
-            border-radius: var(--radius-md);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* ===== NUEVA SECCIÓN GALERÍA ===== */
+        .gallery-section { padding: 60px 0; background: #fff; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .qr-banner-logo {
-            height: 70px;
-            width: auto;
-            border-radius: var(--radius-sm);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            border: 2px solid var(--accent);
-        }
-        
-        .qr-banner h3 {
-            color: var(--white);
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-        
-        .qr-banner p {
-            color: var(--accent-light);
-            max-width: 500px;
-            font-weight: 300;
-        }
-        
-        .section-title { 
-            text-align: center; 
-            font-size: 2rem; 
-            margin-bottom: 40px; 
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gold-gradient);
-            border-radius: 2px;
-        }
-
-        .qr-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .qr-code-real {
-            width: 220px;
-            height: 220px;
-            background: white;
-            padding: 15px;
-            border-radius: var(--radius-md);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid var(--border);
-            margin: 0 auto;
-        }
-        
-        #qrcode {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .qr-url {
-            font-size: 1rem;
-            color: var(--gray);
-            background: var(--light);
-            padding: 12px 24px;
-            border-radius: var(--radius-md);
-            border: 1px dashed var(--border);
-            font-family: 'Montserrat', monospace;
-            word-break: break-all;
-            font-weight: 400;
-        }
-        
-        .share-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
             margin-top: 30px;
         }
-        
-        .share-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.4rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-        }
-        
-        .share-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-        
-        .share-btn.whatsapp { background: #25D366; }
-        .share-btn.facebook { background: #1877F2; }
-        .share-btn.instagram { 
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-        }
-        .share-btn.link { background: var(--secondary); }
-
-        /* Servicios premium */
-        .services-section { 
-            margin-bottom: 60px; 
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-            margin-bottom: 40px;
-        }
-        
-        .service-card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            padding: 32px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-            cursor: pointer;
+        .gallery-item {
             position: relative;
+            border-radius: var(--radius-md);
             overflow: hidden;
+            height: 350px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
         }
-        
-        .service-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-            transform: scaleX(0);
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.6s ease;
-            transform-origin: left;
         }
-        
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--accent-light);
-        }
-        
-        .service-card:hover:before {
-            transform: scaleX(1);
-        }
-        
-        .service-card.selected {
-            border-color: var(--accent);
-            background: linear-gradient(145deg, #ffffff 0%, #fefefe 100%);
-            box-shadow: 0 15px 40px rgba(201, 168, 106, 0.15);
-        }
-        
-        .service-icon {
-            font-size: 2.8rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-        
-        .service-card:hover .service-icon {
+        .gallery-item:hover img {
             transform: scale(1.1);
         }
-        
-        .service-name {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--primary);
-        }
-        
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 12px;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: inline-block;
-        }
-        
-        .service-desc {
-            font-size: 0.95rem;
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-        
-        .service-duration {
-            font-size: 0.85rem;
-            color: var(--gray);
-            background: var(--light);
-            padding: 6px 14px;
-            border-radius: 50px;
-            display: inline-block;
-            border: 1px solid var(--border);
-            font-weight: 500;
-        }
-
-        /* Calendario elegante */
-        .calendar-section { 
-            margin-bottom: 60px; 
-        }
-        
-        .calendar-container {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 35px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .calendar-container:before {
-            content: '';
+        .gallery-item::after {
+            content: 'Ver trabajo';
             position: absolute;
-            top: 0;
+            bottom: -50px;
             left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-        }
-        
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .calendar-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        
-        .calendar-nav button {
-            background: var(--light);
-            border: 1px solid var(--border);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
-            color: var(--primary);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .calendar-nav button:hover {
-            background: var(--accent);
-            color: var(--white);
-            border-color: var(--accent);
-            transform: scale(1.1);
-        }
-        
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-            /* CORRECCIÓN PARA MÓVILES: Permitir scroll horizontal si es necesario */
-            overflow-x: auto;
-            min-width: 100%;
-        }
-        
-        /* CORRECCIÓN PARA MÓVILES: Asegurar que las celdas mantengan su tamaño */
-        .calendar-grid::-webkit-scrollbar {
-            height: 6px;
-        }
-        
-        .calendar-grid::-webkit-scrollbar-track {
-            background: var(--light);
-            border-radius: 10px;
-        }
-        
-        .calendar-grid::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-        }
-        
-        .calendar-day-header {
+            width: 100%;
+            padding: 15px;
+            background: rgba(201, 168, 106, 0.9);
+            color: black;
             text-align: center;
-            font-weight: 600;
-            padding: 14px;
-            color: var(--primary);
-            font-size: 0.95rem;
-            background: var(--light);
-            border-radius: var(--radius-sm);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            /* CORRECCIÓN PARA MÓVILES: Ancho mínimo */
-            min-width: 80px;
-        }
-        
-        .calendar-day {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            font-weight: 500;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            background: var(--white);
-            color: var(--dark);
-            /* CORRECCIÓN PARA MÓVILES: Ancho mínimo */
-            min-width: 80px;
-        }
-        
-        .calendar-day:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-            transform: scale(1.05);
-        }
-        
-        .calendar-day.selected {
-            background: var(--accent);
-            color: var(--primary);
-            border-color: var(--accent);
-            box-shadow: 0 6px 15px rgba(201, 168, 106, 0.3);
-            font-weight: 600;
-        }
-        
-        .calendar-day.disabled {
-            color: var(--gray-light);
-            cursor: not-allowed;
-            background: #f9f9f9;
-        }
-        
-        .calendar-day.today {
-            border: 2px solid var(--accent);
-            background: rgba(201, 168, 106, 0.1);
-            font-weight: 600;
-        }
-        
-        .calendar-day.booked {
-            background: #fff0f0;
-            color: var(--danger);
-            position: relative;
-        }
-        
-        .calendar-day.booked:after {
-            content: '✗';
-            position: absolute;
-            bottom: 5px;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        /* Horarios */
-        .time-slots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 14px;
-        }
-        
-        .time-slot {
-            padding: 14px;
-            text-align: center;
-            background: var(--light);
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            border: 2px solid transparent;
-            color: var(--dark);
-            font-size: 1rem;
-        }
-        
-        .time-slot:hover {
-            background: var(--accent-light);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .time-slot.selected {
-            background: var(--accent);
-            color: var(--primary);
-            border-color: var(--accent);
-            box-shadow: 0 6px 15px rgba(201, 168, 106, 0.3);
-            font-weight: 600;
-        }
-        
-        .time-slot.booked {
-            background: #f9f9f9;
-            color: var(--gray);
-            cursor: not-allowed;
-            border-color: #e0e0e0;
-            text-decoration: line-through;
-            font-weight: 400;
-        }
-        
-        .time-slot.unavailable {
-            background: #f5f5f5;
-            color: var(--gray-light);
-            cursor: not-allowed;
-            font-weight: 400;
-        }
-
-        /* Formulario de reserva */
-        .booking-form {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            margin-bottom: 60px;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .booking-form:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-        }
-        
-        .form-group {
-            margin-bottom: 28px;
-        }
-        
-        .form-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--primary);
-            font-size: 1.05rem;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            transition: var(--transition);
-            background: var(--white);
-            color: var(--dark);
-            font-weight: 400;
-        }
-        
-        .form-input:focus {
-            border-color: var(--accent);
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(201, 168, 106, 0.15);
-            background: #fffefc;
-        }
-        
-        .form-input::placeholder {
-            color: var(--gray);
-            font-weight: 300;
-        }
-        
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Resumen de reserva */
-        .booking-summary {
-            background: linear-gradient(135deg, #fcfaf6 0%, #f9f5f0 100%);
-            border-radius: var(--radius-lg);
-            padding: 30px;
-            border-left: 5px solid var(--accent);
-            margin-bottom: 40px;
-            border: 1px solid var(--border);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-        }
-        
-        .summary-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 14px;
-            padding-bottom: 14px;
-            border-bottom: 1px dashed var(--border);
-            align-items: center;
-        }
-        
-        .summary-item:last-child {
-            border-bottom: none;
             font-weight: 700;
-            font-size: 1.3rem;
-            color: var(--primary);
-            padding-top: 10px;
-            margin-top: 10px;
-            border-top: 2px solid var(--border);
+            transition: bottom 0.3s ease;
         }
-        
-        .summary-label {
-            font-weight: 600;
-            color: var(--dark);
+        .gallery-item:hover::after {
+            bottom: 0;
         }
 
-        /* Botones premium */
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 18px 36px;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(10, 10, 10, 0.2);
-        }
-        
-        .btn-primary:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.6s;
-        }
-        
-        .btn-primary:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(10, 10, 10, 0.3);
-        }
-        
-        .btn-primary:hover:before {
-            left: 100%;
-        }
-        
-        .btn-primary:disabled {
-            background: var(--gray);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 14px 30px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            letter-spacing: 0.3px;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--white);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(10, 10, 10, 0.15);
-        }
+        /* Títulos */
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--primary); position: relative; padding-bottom: 20px; }
+        .section-title:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--gold-gradient); border-radius: 2px; }
 
-        /* Panel de administración */
-        .admin-panel {
-            background: var(--white);
-            border: 2px solid var(--primary);
-            border-radius: var(--radius-lg);
-            padding: 35px;
-            margin: 40px 0;
-            display: none;
-            box-shadow: var(--shadow);
-        }
-        
-        .admin-panel.visible {
-            display: block;
-        }
-        
-        .admin-tabs {
-            display: flex;
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 30px;
-        }
-        
-        .admin-tab {
-            padding: 16px 32px;
-            cursor: pointer;
-            font-weight: 600;
-            border-bottom: 3px solid transparent;
-            transition: var(--transition);
-            color: var(--dark);
-        }
-        
-        .admin-tab.active {
-            border-bottom-color: var(--accent);
-            color: var(--primary);
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
+        /* Servicios */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+        .service-card { background: var(--white); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--border); cursor: pointer; transition: var(--transition); }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .service-card.selected { border: 2px solid var(--accent); background: #fffcf5; }
+        .service-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
+        .service-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
 
-        /* Lista de turnos */
-        .appointments-list {
-            max-height: 500px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        
-        .appointments-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .appointments-list::-webkit-scrollbar-track {
-            background: var(--light);
-            border-radius: 10px;
-        }
-        
-        .appointments-list::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-        }
-        
-        .appointment-item {
-            background: var(--light);
-            border-radius: var(--radius-md);
-            padding: 22px;
-            margin-bottom: 16px;
-            border-left: 4px solid var(--accent);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-        
-        .appointment-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-        
-        .appointment-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .appointment-time {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-        
-        .appointment-client {
-            color: var(--dark);
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        
-        .appointment-actions button {
-            background: var(--danger);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .appointment-actions button:hover {
-            background: #b30000;
-            transform: scale(1.05);
-        }
+        /* Calendario */
+        .calendar-container { background: var(--white); border-radius: var(--radius-lg); padding: 35px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 30px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; overflow-x: auto; }
+        .calendar-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: var(--radius-sm); border: 1px solid #eee; min-width: 45px; }
+        .calendar-day.selected { background: var(--accent); color: white; font-weight: bold; }
+        .calendar-day.disabled { color: #ccc; cursor: not-allowed; background: #f9f9f9; }
 
-        /* Contacto elegante */
-        .contact-info {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            border-radius: var(--radius-lg);
-            padding: 50px;
-            margin-top: 60px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-info:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gold-gradient);
-        }
-        
-        .contact-info h3 {
-            color: var(--white);
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .contact-info p {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-size: 1.05rem;
-            color: var(--accent-light);
-            font-weight: 300;
-        }
-        
-        .contact-info i {
-            color: var(--accent);
-            font-size: 1.3rem;
-            width: 24px;
-        }
+        .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-top: 20px; }
+        .time-slot { padding: 12px; text-align: center; background: var(--light); border-radius: var(--radius-sm); cursor: pointer; transition: 0.3s; }
+        .time-slot.selected { background: var(--accent); color: white; }
 
-        /* Modal elegante */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-            padding: 20px;
-        }
-        
-        .modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            background: var(--white);
-            width: 100%;
-            max-width: 520px;
-            padding: 40px;
-            border-radius: var(--radius-lg);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-            border: 1px solid var(--border);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-            animation: modalAppear 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        @keyframes modalAppear {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2.2rem;
-            cursor: pointer;
-            color: var(--gray);
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        
-        .modal-close:hover {
-            color: var(--danger);
-            background: rgba(204, 51, 51, 0.1);
-            transform: rotate(90deg);
-        }
+        /* Formulario */
+        .booking-form { background: var(--white); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 60px; }
+        .form-group { margin-bottom: 20px; }
+        .form-input { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 1rem; }
+        .btn-primary { background: var(--primary); color: white; padding: 18px; border-radius: var(--radius-md); width: 100%; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; }
 
-        /* Notificación */
-        #notification {
-            position: fixed;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--success);
-            color: white;
-            padding: 16px 36px;
-            border-radius: 50px;
-            z-index: 4000;
-            transition: var(--transition);
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        #notification.show {
-            transform: translateX(-50%) translateY(0);
-        }
-        
-        #notification.error {
-            background: var(--danger);
-            box-shadow: 0 10px 30px rgba(204, 51, 51, 0.4);
-        }
+        /* Contacto */
+        .contact-info { background: var(--primary); color: white; padding: 50px; border-radius: var(--radius-lg); text-align: center; }
+        .contact-info h3 { margin-bottom: 20px; color: var(--accent); }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero h2 { font-size: 2.5rem; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-content { background: white; width: 100%; max-width: 500px; padding: 30px; border-radius: var(--radius-lg); text-align: center; }
+
+        #notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 15px 30px; border-radius: 50px; display: none; z-index: 3000; }
+
         @media (max-width: 768px) {
-            .hero { padding: 60px 20px; }
             .hero h2 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .calendar-grid { gap: 6px; }
-            .calendar-day { font-size: 0.9rem; }
-            .time-slots { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
-            .header-content { flex-wrap: wrap; }
-            .social-icons { order: 3; width: 100%; justify-content: center; margin-top: 15px; }
-            .calendar-container, .booking-form { padding: 25px; }
-            .contact-info { padding: 35px 25px; }
-            .section-title { font-size: 1.7rem; }
-        }
-        
-        @media (max-width: 480px) {
-            .header-content { flex-direction: column; gap: 20px; }
-            .logo { flex-direction: column; text-align: center; gap: 12px; }
-            .social-icons { order: 2; width: auto; margin-top: 0; }
-            .cart-btn { order: 3; }
-            .hero { padding: 50px 15px; }
-            .qr-section { padding: 40px 20px; }
-            .qr-banner { padding: 20px; }
-            .section-title { font-size: 1.5rem; }
-            .hero h2 { font-size: 1.8rem; }
-            /* CORRECCIÓN PARA MÓVILES: Ajuste adicional para días de calendario */
-            .calendar-day-header, .calendar-day {
-                min-width: 70px;
-            }
-        }
-
-        /* Estados de carga */
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: var(--gray);
-        }
-        
-        .loading i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--accent);
-            animation: spin 1.5s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Animación de entrada */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .services-section, .calendar-section, .booking-form, .qr-section {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .services-section { animation-delay: 0.1s; }
-        .calendar-section { animation-delay: 0.2s; }
-        .booking-form { animation-delay: 0.3s; }
-        .qr-section { animation-delay: 0.4s; }
-        
-        /* Efectos de brillo */
-        .gold-effect {
-            position: relative;
-        }
-        
-        .gold-effect:after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gold-gradient);
-            z-index: -1;
-            border-radius: inherit;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .gold-effect:hover:after {
-            opacity: 1;
+            .calendar-grid { gap: 5px; }
+            .gallery-item { height: 300px; }
         }
     </style>
 </head>
 <body>
-    <!-- Cabecera elegante con redes sociales -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Feli_Style Logo" class="logo-img">
+                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>Feli_Style</h1>
-                    <span>Barbería de Excelencia</span>
+                    <span>Excelencia en Corte</span>
                 </div>
             </div>
-            
             <div class="social-icons">
-                <a href="https://wa.me/5491123517723" target="_blank" class="social-icon whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://facebook.com" target="_blank" class="social-icon facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" class="social-icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
+                <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            
             <button class="cart-btn" id="cart-btn">
-                <i class="fas fa-calendar-alt"></i>
-                <span id="cart-count">0</span> servicios
+                <i class="fas fa-calendar-check"></i> <span id="cart-count">0</span>
             </button>
         </div>
     </header>
 
     <main class="container">
-        <!-- Hero Section Premium -->
         <section class="hero">
-            <div class="hero-content">
-                <h2>Experiencia Barbería Premium</h2>
-                <p>Donde el estilo se encuentra con la excelencia. Reserva tu turno para una experiencia única de cuidado masculino.</p>
-                <button class="cta-button" onclick="scrollToServices()">
-                    <i class="fas fa-scissors"></i> Reservar Turno
-                </button>
-            </div>
+            <h2>Experiencia Barbería Premium</h2>
+            <p>El estilo que buscás, con la atención que merecés.</p>
+            <button class="cta-button" onclick="scrollToServices()">Reservar Turno</button>
         </section>
 
-        <!-- QR Code Section con Logo Banner -->
-        <section class="qr-section">
-            <div class="qr-banner">
-                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Feli_Style Banner" class="qr-banner-logo">
-                <h3>Feli_Style Barbería</h3>
-                <p>Accede a nuestra agenda exclusiva desde tu dispositivo móvil</p>
-            </div>
-            
-            <h3 class="section-title">Acceso Rápido</h3>
-            
-            <div class="qr-container">
-                <div class="qr-code-real" id="qrcode"></div>
-                <div class="qr-url" id="qr-url">https://feli-style.vercel.app/</div>
-                
-                <div class="share-buttons">
-                    <button class="share-btn whatsapp" onclick="shareViaWhatsApp()" title="Compartir por WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </button>
-                    <button class="share-btn facebook" onclick="shareViaFacebook()" title="Compartir en Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                    <button class="share-btn instagram" onclick="shareViaInstagram()" title="Compartir en Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </button>
-                    <button class="share-btn link" onclick="copyLink()" title="Copiar enlace">
-                        <i class="fas fa-link"></i>
-                    </button>
+        <!-- NUEVA SECCIÓN DE GALERÍA (Reemplaza al QR) -->
+        <section class="gallery-section">
+            <h3 class="section-title">Nuestros Trabajos</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/T32G8NfQ/IMG-20260212-WA0003.jpg" alt="Corte 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/CxMYyrSm/IMG-20260212-WA0004.jpg" alt="Corte 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/zGD5m28n/IMG-20260212-WA0005.jpg" alt="Corte 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.postimg.cc/sgfyFHsT/IMG-20260212-WA0006.jpg" alt="Corte 4">
                 </div>
             </div>
         </section>
 
-        <!-- Servicios Premium -->
         <section class="services-section" id="services">
-            <h3 class="section-title">Nuestros Servicios Exclusivos</h3>
-            <div class="services-grid" id="services-container">
-                <!-- Los servicios se cargarán aquí -->
-                <div class="loading">
-                    <i class="fas fa-spinner"></i>
-                    <p>Cargando servicios premium...</p>
-                </div>
-            </div>
+            <h3 class="section-title">Servicios</h3>
+            <div class="services-grid" id="services-container"></div>
         </section>
 
-        <!-- Calendario Elegante -->
         <section class="calendar-section">
-            <h3 class="section-title">Selecciona Fecha y Hora</h3>
-            
+            <h3 class="section-title">Fecha y Hora</h3>
             <div class="calendar-container">
-                <div class="calendar-header">
-                    <div class="calendar-title" id="current-month">Mes, Año</div>
-                    <div class="calendar-nav">
-                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
-                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-                
-                <div class="calendar-grid" id="calendar-days">
-                    <!-- Los días se generarán dinámicamente -->
-                </div>
-            </div>
-
-            <div class="calendar-container" id="time-slots-container" style="display: none;">
-                <h4 style="margin-bottom: 20px; color: var(--primary);">
-                    <i class="fas fa-clock"></i> Horarios disponibles para <span id="selected-date"></span>
-                </h4>
-                <div class="time-slots" id="time-slots">
-                    <!-- Los horarios se generarán dinámicamente -->
-                </div>
+                <div id="current-month" style="text-align: center; font-weight: bold; margin-bottom: 15px; font-size: 1.2rem;"></div>
+                <div class="calendar-grid" id="calendar-days"></div>
+                <div class="time-slots" id="time-slots" style="display: none;"></div>
             </div>
         </section>
 
-        <!-- Formulario de Reserva Premium -->
         <section class="booking-form" id="booking-form" style="display: none;">
-            <h3 class="section-title">Confirmación de Reserva</h3>
-            
-            <div class="booking-summary" id="booking-summary">
-                <!-- Resumen de la reserva -->
-            </div>
-
+            <h3 class="section-title">Tus Datos</h3>
             <div class="form-group">
-                <label class="form-label">Nombre Completo *</label>
-                <input type="text" class="form-input" id="client-name" placeholder="Ingresa tu nombre completo" required>
+                <input type="text" class="form-input" id="client-name" placeholder="Nombre completo">
             </div>
-
             <div class="form-group">
-                <label class="form-label">Teléfono *</label>
-                <input type="tel" class="form-input" id="client-phone" placeholder="Ej: 11 1234-5678" required>
+                <input type="tel" class="form-input" id="client-phone" placeholder="WhatsApp (Ej: 11 1234 5678)">
             </div>
-
-            <div class="form-group">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-input" id="client-email" placeholder="tu.email@ejemplo.com">
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Notas especiales (opcional)</label>
-                <textarea class="form-input form-textarea" id="client-notes" placeholder="¿Alguna preferencia especial para tu servicio?"></textarea>
-            </div>
-
-            <button class="btn-primary" id="confirm-booking" onclick="confirmBooking()">
-                <i class="fas fa-check-circle"></i> Confirmar Reserva Premium
-            </button>
+            <button class="btn-primary" onclick="confirmBooking()">Confirmar Reserva</button>
         </section>
 
-        <!-- Información de Contacto Elegante -->
         <section class="contact-info">
-            <h3>Contacto Exclusivo</h3>
-            <p><i class="fas fa-phone-alt"></i> Teléfono: 011-2351-7723</p>
-            <p><i class="fas fa-envelope"></i> Email: diegonahuel011@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Dirección: Enrique Dunant 626 entre Las Heras y El Salvador</p>
-            <p><i class="fas fa-clock"></i> Horarios: Lunes a Sábado 9:00 - 19:00</p>
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Enrique Dunant 626, Buenos Aires</p>
+            <p><i class="fas fa-phone-alt"></i> 011-2351-7723</p>
         </section>
-
-        <!-- Panel de Administración -->
-        <div class="admin-panel" id="admin-panel">
-            <div class="admin-tabs">
-                <div class="admin-tab active" onclick="switchTab('appointments')">Turnos</div>
-                <div class="admin-tab" onclick="switchTab('services')">Servicios</div>
-                <div class="admin-tab" onclick="switchTab('settings')">Configuración</div>
-            </div>
-
-            <div class="tab-content active" id="tab-appointments">
-                <h3>Turnos Programados</h3>
-                <div class="appointments-list" id="appointments-list">
-                    <!-- Lista de turnos -->
-                </div>
-            </div>
-
-            <div class="tab-content" id="tab-services">
-                <h3>Gestión de Servicios</h3>
-                <div class="form-group">
-                    <label class="form-label">URL de Google Sheets</label>
-                    <input type="text" class="form-input" id="sheet-url" placeholder="URL de tu hoja de cálculo">
-                    <button class="btn-secondary" style="margin-top: 10px;" onclick="syncServices()">Sincronizar Servicios</button>
-                </div>
-            </div>
-
-            <div class="tab-content" id="tab-settings">
-                <h3>Configuración Premium</h3>
-                <div class="form-group">
-                    <label class="form-label">Teléfono para WhatsApp</label>
-                    <input type="text" class="form-input" id="whatsapp-number" placeholder="Ej: 5491123517723">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Horarios de atención</label>
-                    <input type="text" class="form-input" id="business-hours" placeholder="Ej: Lunes a Sábado 9:00-19:00">
-                </div>
-                <button class="btn-primary" onclick="saveSettings()">Guardar Configuración</button>
-            </div>
-        </div>
-
-        <!-- Botón de acceso admin -->
-        <div style="text-align: center; margin: 40px 0;">
-            <button class="btn-secondary" onclick="checkAdminAccess()">
-                <i class="fas fa-user-shield"></i> Acceso Administración
-            </button>
-        </div>
     </main>
 
-    <!-- Modal de Login Elegante -->
-    <div class="modal" id="login-modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('login-modal')">&times;</span>
-            <div style="text-align: center;">
-                <div style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <h3 style="margin-bottom: 25px;">Acceso Administrador</h3>
-                <div class="form-group">
-                    <label class="form-label">Usuario</label>
-                    <input type="text" class="form-input" id="admin-user" placeholder="admin">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Contraseña</label>
-                    <input type="password" class="form-input" id="admin-pass" placeholder="••••••••">
-                </div>
-                <button class="btn-primary" onclick="loginAdmin()">Ingresar al Panel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Confirmación Elegante -->
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('confirmation-modal')">&times;</span>
-            <div style="text-align: center; padding: 20px;">
-                <div style="font-size: 5rem; color: var(--success); margin-bottom: 20px; animation: pulse 2s infinite;">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h3 style="margin-bottom: 15px;">¡Reserva Confirmada!</h3>
-                <p id="confirmation-details" style="font-size: 1.1rem; line-height: 1.6;"></p>
-                <p style="margin-top: 25px; font-weight: 600; color: var(--accent);">
-                    <i class="fab fa-whatsapp"></i> Recibirás un recordatorio por WhatsApp.
-                </p>
-                <button class="btn-primary" onclick="closeModal('confirmation-modal'); location.reload();" style="margin-top: 30px;">
-                    <i class="fas fa-plus"></i> Nueva Reserva
-                </button>
-            </div>
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: #2ecc71; margin-bottom: 20px;"></i>
+            <h3>¡Reserva Exitosa!</h3>
+            <p id="confirmation-details"></p>
+            <button class="btn-primary" onclick="location.reload()" style="margin-top: 20px;">Cerrar</button>
         </div>
     </div>
 
-    <!-- Notificación -->
     <div id="notification"></div>
 
     <script>
-        // CONFIGURACIÓN
-        const CONFIG = {
-            ADMIN: { user: "admin", pass: "feli123" },
-            STORAGE_KEY: "feli_style_agenda_premium",
-            APPOINTMENTS_KEY: "feli_style_turnos_premium",
-            SETTINGS_KEY: "feli_style_config_premium",
-            DEFAULT_SERVICES: [
-                { id: '1', name: 'Corte de Cabello', description: 'Corte profesional con lavado, tratamiento y peinado', duration: 30, price: 9000, category: 'Cortes' },
-                { id: '2', name: 'Corte Niños (hasta 11 años)', description: 'Corte especial para niños con ambiente amigable', duration: 35, price: 7000, category: 'Cortes' },
-                { id: '3', name: 'Arreglo de Barba Completo', description: 'Perfilado, recorte y tratamiento para barba', duration: 35, price: 2000, category: 'Barba' },
-                { id: '4', name: 'Afeitado Tradicional', description: 'Afeitado con navaja caliente y productos premium', duration: 15, price: 3000, category: 'Barba' },
-                { id: '5', name: 'Perfilado de Ceja', description: 'Diseño y perfilado profesional de cejas', duration: 10, price: 2000, category: 'Estética' },
-                { id: '6', name: 'Corte + Barba', description: 'Combo completo: corte y arreglo de barba', duration: 40, price: 10000, category: 'Combos' },
-                { id: '7', name: 'Corte + cejas + Barba', description: 'Combo completo: corte , cejas y arreglo de barba', duration: 50, price: 12000, category: 'Combos' }
-            ]
-        };
+        const SERVICES = [
+            { id: 1, name: 'Corte de Cabello', price: 9000, duration: 30, icon: 'cut' },
+            { id: 2, name: 'Arreglo de Barba', price: 5000, duration: 20, icon: 'user-tie' },
+            { id: 3, name: 'Combo Full', price: 12000, duration: 50, icon: 'star' }
+        ];
 
-        // HORARIOS DE TRABAJO
-        const BUSINESS_HOURS = {
-            start: 9,
-            end: 19,
-            interval: 30
-        };
-
-        // VARIABLES GLOBALES
-        let services = CONFIG.DEFAULT_SERVICES;
-        let selectedServices = [];
+        let selectedService = null;
         let selectedDate = null;
         let selectedTime = null;
-        let appointments = [];
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
-        let isAdminLoggedIn = false;
-
-        // INICIALIZACIÓN
-        document.addEventListener('DOMContentLoaded', function() {
-            loadSettings();
-            loadAppointments();
-            renderServices();
-            initCalendar();
-            setupEventListeners();
-            generateRealQRCode();
-            
-            // Efecto de aparición gradual
-            setTimeout(() => {
-                document.querySelectorAll('section').forEach((section, index) => {
-                    section.style.animationDelay = `${index * 0.2}s`;
-                });
-            }, 100);
-        });
-
-        // CARGAR CONFIGURACIÓN
-        function loadSettings() {
-            const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            document.getElementById('sheet-url').value = settings.sheetUrl || "";
-            document.getElementById('whatsapp-number').value = settings.whatsappNumber || "5491123517723";
-            document.getElementById('business-hours').value = settings.businessHours || "Lunes a Sábado 9:00-19:00";
-        }
-
-        function saveSettings() {
-            const settings = {
-                sheetUrl: document.getElementById('sheet-url').value,
-                whatsappNumber: document.getElementById('whatsapp-number').value,
-                businessHours: document.getElementById('business-hours').value
-            };
-            localStorage.setItem(CONFIG.SETTINGS_KEY, JSON.stringify(settings));
-            showNotification("Configuración guardada exitosamente");
-        }
-
-        // QR CODE REAL
-        function generateRealQRCode() {
-            const currentUrl = window.location.href;
-            document.getElementById('qr-url').textContent = currentUrl;
-            
-            // Limpiar contenedor
-            document.getElementById('qrcode').innerHTML = '';
-            
-            // Generar QR con la librería
-            QRCode.toCanvas(document.getElementById('qrcode'), currentUrl, {
-                width: 190,
-                height: 190,
-                margin: 1,
-                color: {
-                    dark: '#0a0a0a',
-                    light: '#ffffff'
-                }
-            }, function(error) {
-                if (error) {
-                    console.error("Error generando QR:", error);
-                    document.getElementById('qrcode').innerHTML = `
-                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                            <i class="fas fa-qrcode" style="font-size: 4rem; color: var(--accent);"></i>
-                            <div style="font-size: 0.7rem; margin-top: 10px; color: var(--gray);">${currentUrl}</div>
-                        </div>
-                    `;
-                }
-            });
-        }
-
-        // CARGAR Y SINCRONIZAR SERVICIOS
-        async function loadServicesFromSheet() {
-            try {
-                const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-                const sheetUrl = settings.sheetUrl;
-                
-                if (!sheetUrl) {
-                    showNotification("No hay URL de Google Sheets configurada");
-                    return;
-                }
-                
-                const response = await fetch(sheetUrl + '&cache=' + Date.now());
-                const csvText = await response.text();
-                const rows = parseCSV(csvText);
-                
-                services = rows.slice(1).map(row => ({
-                    id: row[0] || '',
-                    name: row[1] || 'Servicio',
-                    description: row[2] || '',
-                    duration: parseInt(row[3]) || 30,
-                    price: parseFloat(row[4]) || 0,
-                    category: row[5] || 'General'
-                })).filter(service => service.id);
-                
-                renderServices();
-                localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(services));
-                showNotification("Servicios sincronizados correctamente");
-            } catch (error) {
-                console.error("Error cargando servicios:", error);
-                showNotification("Error al cargar servicios. Usando datos predeterminados", true);
-            }
-        }
-
-        function syncServices() {
-            showNotification("Sincronizando servicios...");
-            loadServicesFromSheet();
-        }
 
         function renderServices() {
             const container = document.getElementById('services-container');
-            
-            // Agrupar por categoría
-            const categories = [...new Set(services.map(s => s.category))];
-            
-            let html = '';
-            categories.forEach(category => {
-                const categoryServices = services.filter(s => s.category === category);
-                html += `<h4 style="grid-column: 1/-1; margin-top: 30px; color: var(--primary); border-bottom: 2px solid var(--accent-light); padding-bottom: 12px;">${category}</h4>`;
-                
-                categoryServices.forEach(service => {
-                    const isSelected = selectedServices.some(s => s.id === service.id);
-                    html += `
-                    <div class="service-card ${isSelected ? 'selected' : ''}" onclick="toggleService('${service.id}')">
-                        <div class="service-icon">
-                            <i class="fas fa-${getServiceIcon(service.category)}"></i>
-                        </div>
-                        <div class="service-name">${service.name}</div>
-                        <div class="service-price">$${service.price.toLocaleString('es-AR')}</div>
-                        <div class="service-desc">${service.description}</div>
-                        <div class="service-duration">${service.duration} min</div>
-                    </div>
-                    `;
-                });
-            });
-            
-            container.innerHTML = html;
-            updateCartCount();
+            container.innerHTML = SERVICES.map(s => `
+                <div class="service-card" onclick="selectService(${s.id})" id="service-${s.id}">
+                    <div class="service-icon"><i class="fas fa-${s.icon}"></i></div>
+                    <h4>${s.name}</h4>
+                    <div class="service-price">$${s.price.toLocaleString()}</div>
+                    <p>${s.duration} min</p>
+                </div>
+            `).join('');
         }
 
-        function getServiceIcon(category) {
-            const icons = {
-                'Cortes': 'cut',
-                'Barba': 'user-tie',
-                'Estética': 'eye',
-                'Combos': 'crown',
-                'General': 'scissors'
-            };
-            return icons[category] || 'scissors';
-        }
-
-        function toggleService(serviceId) {
-            const service = services.find(s => s.id === serviceId);
-            const index = selectedServices.findIndex(s => s.id === serviceId);
-            
-            if (index > -1) {
-                selectedServices.splice(index, 1);
-            } else {
-                selectedServices.push({...service});
-            }
-            
-            renderServices();
-            updateBookingSummary();
-        }
-
-        // CALENDARIO
-        function initCalendar() {
+        function selectService(id) {
+            selectedService = SERVICES.find(s => s.id === id);
+            document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+            document.getElementById(`service-${id}`).classList.add('selected');
+            document.getElementById('cart-count').innerText = "1";
             renderCalendar();
-            
-            document.getElementById('prev-month').addEventListener('click', () => {
-                currentMonth--;
-                if (currentMonth < 0) {
-                    currentMonth = 11;
-                    currentYear--;
-                }
-                renderCalendar();
-            });
-            
-            document.getElementById('next-month').addEventListener('click', () => {
-                currentMonth++;
-                if (currentMonth > 11) {
-                    currentMonth = 0;
-                    currentYear++;
-                }
-                renderCalendar();
-            });
         }
 
         function renderCalendar() {
-            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                              "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            
-            document.getElementById('current-month').textContent = 
-                `${monthNames[currentMonth]} ${currentYear}`;
-            
-            const firstDay = new Date(currentYear, currentMonth, 1);
-            const lastDay = new Date(currentYear, currentMonth + 1, 0);
-            const daysInMonth = lastDay.getDate();
-            const startingDay = firstDay.getDay();
-            
-            const today = new Date();
-            const container = document.getElementById('calendar-days');
-            
-            // Encabezados de días
-            const dayHeaders = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-            let html = dayHeaders.map(day => 
-                `<div class="calendar-day-header">${day}</div>`
-            ).join('');
-            
-            // Días vacíos al inicio
-            for (let i = 0; i < startingDay; i++) {
-                html += '<div class="calendar-day disabled"></div>';
-            }
-            
-            // Días del mes
-            for (let day = 1; day <= daysInMonth; day++) {
-                const date = new Date(currentYear, currentMonth, day);
-                const dateStr = formatDate(date);
-                const isToday = date.toDateString() === today.toDateString();
-                const isPast = date < today && !isToday;
-                const hasAppointments = appointments.some(a => a.date === dateStr);
-                
-                let className = "calendar-day";
-                if (isToday) className += " today";
-                if (isPast) className += " disabled";
-                if (hasAppointments) className += " booked";
-                if (selectedDate === dateStr) className += " selected";
-                
-                html += `<div class="${className}" onclick="selectDate('${dateStr}')" ${isPast ? 'style="cursor: not-allowed;"' : ''}>${day}</div>`;
-            }
-            
-            container.innerHTML = html;
-        }
+            const daysContainer = document.getElementById('calendar-days');
+            const now = new Date();
+            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            document.getElementById('current-month').innerText = monthNames[now.getMonth()] + " " + now.getFullYear();
 
-        function selectDate(dateStr) {
-            const date = new Date(dateStr);
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            
-            if (date < today) {
-                showNotification("No se pueden seleccionar fechas pasadas", true);
-                return;
-            }
-            
-            selectedDate = dateStr;
-            renderCalendar();
-            document.getElementById('selected-date').textContent = formatDateDisplay(date);
-            document.getElementById('time-slots-container').style.display = 'block';
-            generateTimeSlots();
-            
-            // Scroll suave
-            document.getElementById('time-slots-container').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-
-        function generateTimeSlots() {
-            if (!selectedDate) return;
-            
-            const container = document.getElementById('time-slots');
-            const dateAppointments = appointments.filter(a => a.date === selectedDate);
-            const totalDuration = selectedServices.reduce((sum, service) => sum + service.duration, 0);
-            
             let html = '';
-            const startHour = BUSINESS_HOURS.start;
-            const endHour = BUSINESS_HOURS.end;
-            const interval = BUSINESS_HOURS.interval;
-            
-            for (let hour = startHour; hour < endHour; hour++) {
-                for (let minute = 0; minute < 60; minute += interval) {
-                    const timeStr = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
-                    const slotStart = new Date(`${selectedDate}T${timeStr}`);
-                    const slotEnd = new Date(slotStart.getTime() + totalDuration * 60000);
-                    
-                    // Verificar si el horario está ocupado
-                    let isBooked = false;
-                    for (const app of dateAppointments) {
-                        const appStart = new Date(`${app.date}T${app.time}`);
-                        const appEnd = new Date(appStart.getTime() + app.duration * 60000);
-                        
-                        if ((slotStart >= appStart && slotStart < appEnd) ||
-                            (slotEnd > appStart && slotEnd <= appEnd) ||
-                            (slotStart <= appStart && slotEnd >= appEnd)) {
-                            isBooked = true;
-                            break;
-                        }
-                    }
-                    
-                    // Verificar si está dentro del horario laboral
-                    const slotHour = slotEnd.getHours();
-                    const slotMinute = slotEnd.getMinutes();
-                    const isWithinHours = slotHour < endHour || (slotHour === endHour && slotMinute === 0);
-                    
-                    let className = "time-slot";
-                    if (isBooked) {
-                        className += " booked";
-                    } else if (!isWithinHours) {
-                        className += " unavailable";
-                    } else if (selectedTime === timeStr) {
-                        className += " selected";
-                    }
-                    
-                    const disabled = isBooked || !isWithinHours;
-                    
-                    html += `
-                        <div class="${className}" 
-                             onclick="${disabled ? '' : `selectTime('${timeStr}')`}"
-                             ${disabled ? 'style="cursor: not-allowed;"' : ''}>
-                            ${timeStr}
-                        </div>
-                    `;
-                }
-            }
-            
-            container.innerHTML = html;
-        }
-
-        function selectTime(timeStr) {
-            selectedTime = timeStr;
-            generateTimeSlots();
-            document.getElementById('booking-form').style.display = 'block';
-            updateBookingSummary();
-            
-            // Scroll suave al formulario
-            document.getElementById('booking-form').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
-        }
-
-        // RESERVA
-        function updateBookingSummary() {
-            const totalDuration = selectedServices.reduce((sum, s) => sum + s.duration, 0);
-            const totalPrice = selectedServices.reduce((sum, s) => sum + s.price, 0);
-            
-            let html = `
-                <div class="summary-title">Resumen de tu Reserva </div>
-                <div class="summary-item">
-                    <span class="summary-label">Servicios seleccionados:</span>
-                    <span>${selectedServices.length}</span>
-                </div>
-            `;
-            
-            selectedServices.forEach(service => {
+            for(let i=0; i<14; i++) {
+                let date = new Date();
+                date.setDate(now.getDate() + i);
+                let dayName = date.toLocaleDateString('es', {weekday: 'short'});
+                let isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
+                
                 html += `
-                    <div class="summary-item">
-                        <span>${service.name}</span>
-                        <span>$${service.price.toLocaleString('es-AR')}</span>
+                    <div class="calendar-day ${isSelected ? 'selected' : ''}" onclick="selectDate('${date.toISOString()}')">
+                        <div>
+                            <div style="font-size: 0.7rem; text-transform: uppercase;">${dayName}</div>
+                            <div style="font-size: 1.1rem; font-weight: bold;">${date.getDate()}</div>
+                        </div>
                     </div>
                 `;
-            });
+            }
+            daysContainer.innerHTML = html;
+        }
+
+        function selectDate(dateIso) {
+            selectedDate = new Date(dateIso);
+            renderCalendar();
+            renderTimeSlots();
+        }
+
+        function renderTimeSlots() {
+            const container = document.getElementById('time-slots');
+            container.style.display = 'grid';
+            const slots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
             
-            html += `
-                <div class="summary-item">
-                    <span class="summary-label">Fecha:</span>
-                    <span>${selectedDate ? formatDateDisplay(new Date(selectedDate)) : '-'}</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Hora:</span>
-                    <span>${selectedTime || '-'}</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Duración total:</span>
-                    <span>${totalDuration} min</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-label">Total a pagar:</span>
-                    <span>$${totalPrice.toLocaleString('es-AR')}</span>
-                </div>
-            `;
-            
-            document.getElementById('booking-summary').innerHTML = html;
+            container.innerHTML = slots.map(s => `
+                <div class="time-slot ${selectedTime === s ? 'selected' : ''}" onclick="selectTime('${s}')">${s}</div>
+            `).join('');
+        }
+
+        function selectTime(time) {
+            selectedTime = time;
+            renderTimeSlots();
+            document.getElementById('booking-form').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('booking-form').offsetTop - 100, behavior: 'smooth' });
         }
 
         function confirmBooking() {
-            if (selectedServices.length === 0) {
-                showNotification("Por favor, selecciona al menos un servicio", true);
-                return;
-            }
-            
-            if (!selectedDate || !selectedTime) {
-                showNotification("Por favor, selecciona fecha y hora", true);
-                return;
-            }
-            
-            const name = document.getElementById('client-name').value.trim();
-            const phone = document.getElementById('client-phone').value.trim();
-            
-            if (!name || !phone) {
-                showNotification("Por favor, completa tu nombre y teléfono", true);
-                return;
-            }
-            
-            // Validar teléfono
-            const phoneRegex = /^[0-9\s\-\+\(\)]{8,20}$/;
-            if (!phoneRegex.test(phone)) {
-                showNotification("Por favor, ingresa un número de teléfono válido", true);
-                return;
-            }
-            
-            const appointment = {
-                id: Date.now().toString(),
-                date: selectedDate,
-                time: selectedTime,
-                services: [...selectedServices],
-                client: {
-                    name: name,
-                    phone: phone,
-                    email: document.getElementById('client-email').value.trim(),
-                    notes: document.getElementById('client-notes').value.trim()
-                },
-                duration: selectedServices.reduce((sum, s) => sum + s.duration, 0),
-                total: selectedServices.reduce((sum, s) => sum + s.price, 0),
-                createdAt: new Date().toISOString()
-            };
-            
-            appointments.push(appointment);
-            localStorage.setItem(CONFIG.APPOINTMENTS_KEY, JSON.stringify(appointments));
-            
-            // Enviar notificación por WhatsApp
-            sendWhatsAppNotification(appointment);
-            
-            // Mostrar confirmación
-            showConfirmation(appointment);
-            
-            // Resetear formulario
-            resetBookingForm();
-        }
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            if(!name || !phone) return alert("Por favor completa tus datos");
 
-        // CORRECCIÓN: Función corregida para el mensaje de WhatsApp (fecha sin problemas de zona horaria)
-        function sendWhatsAppNotification(appointment) {
-            const settings = JSON.parse(localStorage.getItem(CONFIG.SETTINGS_KEY)) || {};
-            const phone = settings.whatsappNumber || "5491123517723";
-
-            // Crear una lista de servicios más limpia
-            const servicesList = appointment.services.map(s => `✧ ${s.name}`).join('%0A');
-
-            // CORRECCIÓN: Formatear la fecha manualmente para evitar problemas de zona horaria
-            // Extraemos año, mes y día directamente de la cadena selectedDate (formato YYYY-MM-DD)
-            const dateParts = appointment.date.split('-');
-            const year = dateParts[0];
-            const month = dateParts[1];
-            const day = dateParts[2];
-            
-            // Array de meses en español
-            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                              "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            
-            // Array de días de la semana en español
-            const dayNames = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-            
-            // Crear una fecha con los componentes para obtener el día de la semana
-            // Esto evita problemas de zona horaria porque usamos UTC
-            const dateObj = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day)));
-            const dayOfWeek = dayNames[dateObj.getUTCDay()];
-            
-            // Formatear fecha: "Jueves 4 de Abril"
-            const formattedDate = `${dayOfWeek} ${parseInt(day)} de ${monthNames[parseInt(month) - 1]}`;
-
-            // Mensaje CORREGIDO con fecha sin problemas de zona horaria
-            const message = `*✂️ FELI_STYLE BARBERÍA - RESERVA CONFIRMADA ✂️*%0A%0A` +
-                            `Hola *${appointment.client.name}*, gracias por agendar con nosotros. Te esperamos para brindarte una experiencia premium.%0A%0A` +
-                            `*————————— DETALLE DE TU RESERVA —————————*%0A` +
-                            `📅 *Fecha:* ${formattedDate}%0A` +
-                            `⏰ *Hora:* ${appointment.time} hs%0A` +
-                            `⏱️ *Duración:* ${appointment.duration} minutos%0A` +
-                            `💈 *Servicios:*%0A${servicesList}%0A` +
-                            `💰 *Total:* $${appointment.total.toLocaleString('es-AR')}%0A` +
-                            `*———————————————————————————————————————*%0A%0A` +
-                            `📍 *Dirección:* Enrique Dunant 626 (entre Las Heras y El Salvador)%0A` +
-                            `📞 *Teléfono:* 011-2351-7723%0A%0A` +
-                            `_Te recordamos que la puntualidad es parte del estilo. ¡Te esperamos!_ ✨`;
-
-            // Abrir WhatsApp con el mensaje formateado
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-        }
-
-        function showConfirmation(appointment) {
-            const details = `
-                <strong>${appointment.client.name}</strong>, tu turno ha sido confirmado exitosamente.<br><br>
-                📅 <strong>Fecha:</strong> ${formatDateDisplay(new Date(appointment.date))}<br>
-                ⏰ <strong>Hora:</strong> ${appointment.time}<br>
-                ⏱️ <strong>Duración estimada:</strong> ${appointment.duration} minutos<br>
-                💰 <strong>Total:</strong> $${appointment.total.toLocaleString('es-AR')}<br><br>
-                <em>Te esperamos en Feli_Style Barbería para brindarte una experiencia premium.</em>
-            `;
-            
-            document.getElementById('confirmation-details').innerHTML = details;
+            const details = `Turno para ${name} - ${selectedService.name} el ${selectedDate.toLocaleDateString()} a las ${selectedTime}hs.`;
+            document.getElementById('confirmation-details').innerText = details;
             document.getElementById('confirmation-modal').classList.add('active');
-        }
-
-        function resetBookingForm() {
-            selectedServices = [];
-            selectedDate = null;
-            selectedTime = null;
-            document.getElementById('client-name').value = '';
-            document.getElementById('client-phone').value = '';
-            document.getElementById('client-email').value = '';
-            document.getElementById('client-notes').value = '';
-            document.getElementById('booking-form').style.display = 'none';
-            document.getElementById('time-slots-container').style.display = 'none';
-            renderServices();
-            renderCalendar();
-            updateCartCount();
-        }
-
-        // ADMINISTRACIÓN
-        function checkAdminAccess() {
-            if (isAdminLoggedIn) {
-                document.getElementById('admin-panel').classList.toggle('visible');
-            } else {
-                document.getElementById('login-modal').classList.add('active');
-            }
-        }
-
-        function loginAdmin() {
-            const user = document.getElementById('admin-user').value;
-            const pass = document.getElementById('admin-pass').value;
             
-            if (user === CONFIG.ADMIN.user && pass === CONFIG.ADMIN.pass) {
-                isAdminLoggedIn = true;
-                document.getElementById('login-modal').classList.remove('active');
-                document.getElementById('admin-panel').classList.add('visible');
-                loadAppointmentsList();
-                showNotification("Acceso administrador concedido");
-            } else {
-                showNotification("Credenciales incorrectas", true);
-            }
-        }
-
-        function loadAppointments() {
-            appointments = JSON.parse(localStorage.getItem(CONFIG.APPOINTMENTS_KEY)) || [];
-        }
-
-        function loadAppointmentsList() {
-            const container = document.getElementById('appointments-list');
-            
-            if (appointments.length === 0) {
-                container.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: var(--gray);">
-                        <i class="fas fa-calendar-check" style="font-size: 3rem; margin-bottom: 20px; color: var(--accent-light);"></i>
-                        <p style="font-size: 1.1rem;">No hay turnos programados</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Ordenar por fecha más cercana
-            appointments.sort((a, b) => new Date(a.date + 'T' + a.time) - new Date(b.date + 'T' + b.time));
-            
-            let html = '';
-            appointments.forEach(app => {
-                const servicesList = app.services.map(s => s.name).join(', ');
-                html += `
-                    <div class="appointment-item">
-                        <div class="appointment-info">
-                            <h4>${servicesList}</h4>
-                            <div class="appointment-time">${formatDateDisplay(new Date(app.date))} - ${app.time}</div>
-                            <div class="appointment-client">${app.client.name} | ${app.client.phone}</div>
-                            <div>Duración: ${app.duration}min | Total: $${app.total.toLocaleString('es-AR')}</div>
-                            ${app.client.notes ? `<div style="margin-top: 8px; font-style: italic; color: var(--gray);">Notas: ${app.client.notes}</div>` : ''}
-                        </div>
-                        <div class="appointment-actions">
-                            <button onclick="cancelAppointment('${app.id}')">
-                                <i class="fas fa-times"></i> Cancelar
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
-        }
-
-        function cancelAppointment(appointmentId) {
-            if (confirm("¿Estás seguro de cancelar este turno? Esta acción no se puede deshacer.")) {
-                appointments = appointments.filter(a => a.id !== appointmentId);
-                localStorage.setItem(CONFIG.APPOINTMENTS_KEY, JSON.stringify(appointments));
-                loadAppointmentsList();
-                renderCalendar();
-                showNotification("Turno cancelado exitosamente");
-            }
-        }
-
-        function switchTab(tabName) {
-            // Ocultar todas las pestañas
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelectorAll('.admin-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Mostrar pestaña seleccionada
-            document.getElementById(`tab-${tabName}`).classList.add('active');
-            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
-        }
-
-        // COMPARTIR
-        function shareViaWhatsApp() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent("✨ ¡Reserva tu turno en Feli_Style Barbería! ✨\nExperiencia premium de cuidado masculino.\nAgenda online fácil y rápida.");
-            window.open(`https://wa.me/?text=${text}%0A%0A${url}`, '_blank');
-        }
-
-        function shareViaFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareViaInstagram() {
-            showNotification("Comparte nuestro enlace en Instagram: https://feli-style.vercel.app/");
-            copyLink();
-        }
-
-        function copyLink() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url)
-                .then(() => showNotification("¡Enlace copiado al portapapeles!"))
-                .catch(err => {
-                    console.error('Error copiando:', err);
-                    showNotification("Error al copiar el enlace", true);
-                });
-        }
-
-        // UTILIDADES
-        function parseCSV(text) {
-            const rows = [];
-            let row = [];
-            let cell = '';
-            let inQuotes = false;
-            
-            for (let i = 0; i < text.length; i++) {
-                const char = text[i];
-                const next = text[i + 1];
-                
-                if (char === '"' && inQuotes && next === '"') {
-                    cell += '"';
-                    i++;
-                } else if (char === '"') {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    row.push(cell);
-                    cell = '';
-                } else if ((char === '\r' || char === '\n') && !inQuotes) {
-                    if (cell !== '' || row.length > 0) {
-                        row.push(cell);
-                        rows.push(row);
-                        row = [];
-                        cell = '';
-                    }
-                } else {
-                    cell += char;
-                }
-            }
-            
-            if (cell !== '' || row.length > 0) {
-                row.push(cell);
-                rows.push(row);
-            }
-            
-            return rows;
-        }
-
-        function formatDate(date) {
-            return date.toISOString().split('T')[0];
-        }
-
-        function formatDateDisplay(date) {
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            return date.toLocaleDateString('es-AR', options);
-        }
-
-        function updateCartCount() {
-            document.getElementById('cart-count').textContent = selectedServices.length;
+            // Enviar WhatsApp (Simulado)
+            const waMsg = encodeURIComponent(`Hola! Reservé un turno: ${details}`);
+            window.open(`https://wa.me/5491123517723?text=${waMsg}`, '_blank');
         }
 
         function scrollToServices() {
-            document.getElementById('services').scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'start' 
-            });
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function showNotification(message, isError = false) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = '';
-            notification.classList.add(isError ? 'error' : 'show');
-            if (!isError) notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 4000);
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
-
-        function setupEventListeners() {
-            // Enter para confirmar en formulario
-            document.getElementById('client-name').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') document.getElementById('confirm-booking').click();
-            });
-            
-            document.getElementById('client-phone').addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') document.getElementById('confirm-booking').click();
-            });
-            
-            // Cerrar modales con ESC
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal('login-modal');
-                    closeModal('confirmation-modal');
-                }
-            });
-            
-            // Efectos de hover en botones
-            document.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
-                });
-                
-                btn.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('selected')) {
-                        this.style.transform = 'translateY(0)';
-                    }
-                });
-            });
-        }
+        renderServices();
     </script>
 </body>
 </html>
