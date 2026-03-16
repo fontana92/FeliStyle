@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Feli_Style Barbería | Reservas Premium</title>
     
-    <!-- Fuentes y Estilos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -29,93 +28,86 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background-color: var(--white); color: var(--primary); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4, .section-title { font-family: 'Poppins', sans-serif; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* HEADER */
         header {
-            background: rgba(10, 10, 10, 0.98); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 1000;
+            background: rgba(10, 10, 10, 0.98); color: white; padding: 1.2rem 0; position: sticky; top: 0; z-index: 1000;
             backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 12px; }
         .logo-img { height: 50px; width: auto; border-radius: 8px; border: 1.5px solid var(--accent); }
-        .logo h1 { font-size: 1.2rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo h1 { font-size: 1.4rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* HERO */
+        .social-link { color: var(--accent); font-size: 1.5rem; text-decoration: none; transition: 0.3s; }
+        .social-link:hover { color: white; transform: scale(1.1); }
+
         .hero {
             text-align: center; padding: 60px 20px; color: white; margin-bottom: 30px; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
             background-size: cover; background-position: center;
         }
 
-        /* GALERIA (Reemplaza Acceso Rápido) */
-        .gallery-section { padding: 40px 0; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .gallery-item {
-            height: 200px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow);
+        /* GALERIA CON TITULOS */
+        .gallery-section { padding: 20px 0; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
+        .gallery-item { 
+            height: 250px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border); 
+            box-shadow: var(--shadow); position: relative; cursor: pointer;
         }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.7); }
+        .gallery-title { 
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; 
+            background: rgba(0,0,0,0.6); color: var(--accent); text-align: center; 
+            font-weight: 700; font-size: 0.9rem; text-transform: uppercase;
+        }
 
-        /* SERVICIOS */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .service-card { 
             background: white; border-radius: var(--radius-md); padding: 25px; border: 1px solid var(--border); 
-            cursor: pointer; transition: var(--transition); position: relative;
+            cursor: pointer; transition: var(--transition);
         }
         .service-card:hover { border-color: var(--accent); transform: translateY(-5px); }
         .service-card.selected { border: 2.5px solid var(--accent); background: #fffcf5; }
-        .service-icon { font-size: 1.8rem; color: var(--accent); margin-bottom: 10px; }
-        .service-price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+        .service-icon { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
+        .service-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
 
-        /* CALENDARIO */
         .calendar-container { background: white; border-radius: var(--radius-lg); padding: 25px; border: 1px solid var(--border); margin-bottom: 25px; }
-        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-weight: bold; }
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
-        .calendar-day-header { text-align: center; font-weight: 700; font-size: 0.7rem; color: #999; text-transform: uppercase; padding: 5px 0; }
+        .calendar-day-header { text-align: center; font-weight: 700; font-size: 0.7rem; color: #999; text-transform: uppercase; }
         .calendar-day { 
             aspect-ratio: 1; display: flex; align-items: center; justify-content: center; 
-            cursor: pointer; border-radius: 10px; border: 1px solid #f0f0f0; font-size: 0.9rem; transition: 0.2s;
+            cursor: pointer; border-radius: 10px; border: 1px solid #f0f0f0; transition: 0.2s;
         }
-        .calendar-day:hover:not(.disabled) { background: var(--accent-light); }
-        .calendar-day.selected { background: var(--accent) !important; color: white !important; font-weight: bold; border-color: var(--accent); }
+        .calendar-day.selected { background: var(--accent) !important; color: white !important; font-weight: bold; }
         .calendar-day.disabled { color: #ccc; cursor: not-allowed; background: #fafafa; border: none; }
         .calendar-day.today { border: 2px solid var(--accent); color: var(--accent); font-weight: 700; }
 
-        .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 10px; margin-top: 20px; }
-        .time-slot { padding: 12px; text-align: center; background: var(--light); border-radius: 10px; cursor: pointer; border: 1.5px solid transparent; font-weight: 600; }
-        .time-slot.selected { background: var(--accent); color: white; border-color: var(--accent); }
+        .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 10px; margin-top: 20px; }
+        .time-slot { padding: 12px; text-align: center; background: var(--light); border-radius: 10px; cursor: pointer; font-weight: 600; border: 1.5px solid transparent; transition: 0.3s; }
+        .time-slot.selected { background: var(--accent); color: white; }
+        .time-slot.occupied { background: #e0e0e0; color: #aaa; cursor: not-allowed; text-decoration: line-through; pointer-events: none; }
 
-        /* FORMULARIO */
         .booking-form { background: white; border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--border); margin-bottom: 50px; }
-        .form-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; font-size: 1rem; outline: none; }
-        .form-input:focus { border-color: var(--accent); }
-        .btn-primary { 
-            width: 100%; padding: 18px; background: var(--primary); color: white; 
-            border-radius: 12px; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
-        }
-        .btn-primary:active { transform: scale(0.98); }
+        .form-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; font-size: 1rem; }
+        .btn-primary { width: 100%; padding: 18px; background: var(--primary); color: white; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; }
 
-        /* UTILIDADES */
-        .section-title { text-align: center; font-size: 1.6rem; margin: 40px 0 20px; position: relative; padding-bottom: 10px; }
+        .section-title { text-align: center; font-size: 1.7rem; margin: 40px 0 20px; position: relative; padding-bottom: 10px; }
         .section-title:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--accent); }
         .hidden { display: none !important; }
 
-        /* MODAL */
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
         .modal.active { display: flex; }
-        .modal-content { background: white; padding: 40px; border-radius: var(--radius-lg); text-align: center; max-width: 400px; }
+        .modal-content { background: white; padding: 40px; border-radius: var(--radius-lg); text-align: center; max-width: 400px; width: 100%; }
 
-        @media (max-width: 480px) {
-            .big-number { font-size: 6rem; }
-            .calendar-day { font-size: 0.8rem; }
+        /* FOOTER */
+        footer { 
+            padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: #fafafa;
+            color: #666; font-size: 0.9rem; letter-spacing: 1px;
         }
+        .footer-brand { font-weight: 800; color: var(--primary); }
     </style>
 </head>
 <body>
@@ -124,13 +116,11 @@
         <div class="container header-content">
             <div class="logo">
                 <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" class="logo-img">
-                <div class="logo-text">
-                    <h1>Feli_Style</h1>
-                </div>
+                <h1>Feli_Style</h1>
             </div>
-            <div style="display: flex; gap: 15px; font-size: 1.2rem; color: var(--accent);">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-whatsapp"></i>
+            <div style="display: flex; gap: 20px;">
+                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5491123517723" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </header>
@@ -141,19 +131,26 @@
             <p>Reserva tu lugar en segundos.</p>
         </section>
 
-        <!-- SECCIÓN GALERÍA DE TRABAJOS -->
         <section class="gallery-section">
-            <h3 class="section-title">Nuestros Trabajos</h3>
+            <h3 class="section-title">Trabajos Reales</h3>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="https://i.postimg.cc/T32G8NfQ/IMG-20260212-WA0003.jpg" alt="Trabajo 1"></div>
-                <div class="gallery-item"><img src="https://i.postimg.cc/CxMYyrSm/IMG-20260212-WA0004.jpg" alt="Trabajo 2"></div>
-                <div class="gallery-item"><img src="https://i.postimg.cc/zGD5m28n/IMG-20260212-WA0005.jpg" alt="Trabajo 3"></div>
-                <div class="gallery-item"><img src="https://i.postimg.cc/sgfyFHsT/IMG-20260212-WA0006.jpg" alt="Trabajo 4"></div>
+                <div class="gallery-item" onclick="selectServiceByTitle('1')">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=500">
+                    <div class="gallery-title">Corte Premium</div>
+                </div>
+                <div class="gallery-item" onclick="selectServiceByTitle('3')">
+                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21ce963f?q=80&w=500">
+                    <div class="gallery-title">Arreglo de Barba</div>
+                </div>
+                <div class="gallery-item" onclick="selectServiceByTitle('6')">
+                    <img src="https://images.unsplash.com/photo-1622286332618-f2803b11558c?q=80&w=500">
+                    <div class="gallery-title">Combo Real</div>
+                </div>
             </div>
         </section>
 
         <section id="services">
-            <h3 class="section-title">Servicios</h3>
+            <h3 class="section-title">Nuestros Servicios</h3>
             <div class="services-grid" id="services-container"></div>
         </section>
 
@@ -161,9 +158,9 @@
             <h3 class="section-title">Selecciona Fecha</h3>
             <div class="calendar-container">
                 <div class="calendar-header">
-                    <button onclick="changeMonth(-1)" style="background:none; border:none; cursor:pointer;"><i class="fas fa-chevron-left"></i></button>
-                    <h4 id="current-month-name">Marzo 2026</h4>
-                    <button onclick="changeMonth(1)" style="background:none; border:none; cursor:pointer;"><i class="fas fa-chevron-right"></i></button>
+                    <button onclick="changeMonth(-1)" style="border:none; background:none; cursor:pointer;"><i class="fas fa-chevron-left"></i></button>
+                    <span id="current-month-name"></span>
+                    <button onclick="changeMonth(1)" style="border:none; background:none; cursor:pointer;"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 <div class="calendar-grid" id="calendar-days"></div>
             </div>
@@ -176,39 +173,50 @@
 
         <section class="booking-form hidden" id="booking-form">
             <h3 class="section-title">Tus Datos</h3>
-            <input type="text" class="form-input" id="client-name" placeholder="Tu nombre">
+            <input type="text" class="form-input" id="client-name" placeholder="Tu nombre completo">
             <input type="tel" class="form-input" id="client-phone" placeholder="WhatsApp (Ej: 11 1234 5678)">
             <button class="btn-primary" onclick="confirmBooking()">Finalizar Reserva</button>
         </section>
     </main>
 
-    <!-- Modal de Éxito -->
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
             <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--success); margin-bottom: 15px;"></i>
             <h3>¡Turno Reservado!</h3>
-            <p id="confirmation-details" style="margin: 15px 0; font-size: 0.9rem; color: #666;"></p>
+            <p id="confirmation-details" style="margin: 15px 0; font-size: 0.9rem;"></p>
             <button class="btn-primary" onclick="location.reload()">Cerrar</button>
         </div>
     </div>
 
+    <footer>
+        <div class="container">
+            <p>Hecho con <i class="fas fa-heart" style="color: #e74c3c;"></i> por <span class="footer-brand">Fontana Designs</span></p>
+        </div>
+    </footer>
+
     <script>
+        // --- CONFIGURACIÓN SUPABASE ---
+        const SUPABASE_URL = "Thttps://acumbghpdubforsfifyd.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjdW1iZ2hwZHViZm9yc2ZpZnlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2ODU2ODEsImV4cCI6MjA4OTI2MTY4MX0.szs3W1Ki-8EC4NlCDhaWw2Y4s3XGJmPu0FGUIvmzDD8";
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
         const SERVICES = [
-            { id: '1', name: 'Corte de Cabello', duration: 30, price: 9000, icon: 'cut' },
-            { id: '2', name: 'Corte Niños (hasta 11 años)', duration: 35, price: 7000, icon: 'child' },
-            { id: '3', name: 'Arreglo de Barba', duration: 35, price: 2000, icon: 'user-tie' },
-            { id: '4', name: 'Afeitado Tradicional', duration: 15, price: 3000, icon: 'hand-sparkles' },
-            { id: '5', name: 'Perfilado de Ceja', duration: 10, price: 2000, icon: 'eye' },
-            { id: '6', name: 'Corte + Barba', duration: 40, price: 10000, icon: 'crown' },
-            { id: '7', name: 'Corte + Cejas + Barba', duration: 50, price: 12000, icon: 'star' }
+            { id: '1', name: 'Corte de Cabello', price: 9000, icon: 'cut' },
+            { id: '2', name: 'Corte Niños', price: 7000, icon: 'child' },
+            { id: '3', name: 'Arreglo de Barba', price: 2000, icon: 'user-tie' },
+            { id: '4', name: 'Afeitado Tradicional', price: 3000, icon: 'razor' },
+            { id: '5', name: 'Perfilado de Ceja', price: 2000, icon: 'eye' },
+            { id: '6', name: 'Corte + Barba', price: 10000, icon: 'crown' },
+            { id: '7', name: 'Pelo + Barba + Ceja', price: 12000, icon: 'star' }
         ];
 
-        const TIME_SLOTS = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
+        const ALL_SLOTS = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
 
         let selectedService = null;
         let selectedDate = null;
         let selectedTime = null;
-        let viewDate = new Date(); // Para navegar meses
+        let occupiedSlots = [];
+        let viewDate = new Date();
 
         function renderServices() {
             const container = document.getElementById('services-container');
@@ -216,8 +224,7 @@
                 <div class="service-card" onclick="selectService('${s.id}')" id="service-${s.id}">
                     <div class="service-icon"><i class="fas fa-${s.icon}"></i></div>
                     <div class="service-price">$${s.price.toLocaleString()}</div>
-                    <h4 style="margin: 5px 0">${s.name}</h4>
-                    <p style="font-size: 0.8rem; color: #888">${s.duration} min</p>
+                    <h4 style="margin:5px 0">${s.name}</h4>
                 </div>
             `).join('');
         }
@@ -231,54 +238,54 @@
             document.getElementById('calendar-section').scrollIntoView({ behavior: 'smooth' });
         }
 
+        function selectServiceByTitle(id) {
+            selectService(id);
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function renderCalendar() {
             const container = document.getElementById('calendar-days');
             const monthLabel = document.getElementById('current-month-name');
             const year = viewDate.getFullYear();
             const month = viewDate.getMonth();
+            const names = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
             
-            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            monthLabel.innerText = `${monthNames[month]} ${year}`;
-
+            monthLabel.innerText = `${names[month]} ${year}`;
             const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate(); // AQUÍ SE CALCULA BIEN (Marzo = 31)
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            let html = ["Dom","Lun","Mar","Mie","Jue","Vie","Sab"].map(d => `<div class="calendar-day-header">${d}</div>`).join('');
-            
+            let html = ["D","L","M","M","J","V","S"].map(d => `<div class="calendar-day-header">${d}</div>`).join('');
             for(let i=0; i<firstDay; i++) html += `<div class="calendar-day disabled"></div>`;
             
-            const today = new Date();
-            today.setHours(0,0,0,0);
+            const today = new Date(); today.setHours(0,0,0,0);
 
             for(let d=1; d<=daysInMonth; d++) {
                 const date = new Date(year, month, d);
                 const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
                 const isPast = date < today;
                 const isSelected = selectedDate === dateStr;
-                
-                html += `<div class="calendar-day ${isPast ? 'disabled' : ''} ${isSelected ? 'selected' : ''}" 
+                html += `<div class="calendar-day ${isPast ? 'disabled' : ''} ${isSelected ? 'selected' : ''} ${date.toDateString() === new Date().toDateString() ? 'today' : ''}" 
                              onclick="${isPast ? '' : `selectDate('${dateStr}')`}">${d}</div>`;
             }
             container.innerHTML = html;
         }
 
-        function changeMonth(val) {
-            viewDate.setMonth(viewDate.getMonth() + val);
-            renderCalendar();
-        }
-
-        function selectDate(dateStr) {
+        async function selectDate(dateStr) {
             selectedDate = dateStr;
             renderCalendar();
+            const { data } = await _supabase.from('agenda_turnos').select('hora').eq('fecha', dateStr);
+            occupiedSlots = data ? data.map(t => t.hora) : [];
             document.getElementById('time-container').classList.remove('hidden');
             renderTimeSlots();
         }
 
         function renderTimeSlots() {
             const container = document.getElementById('time-slots');
-            container.innerHTML = TIME_SLOTS.map(t => `
-                <div class="time-slot ${selectedTime === t ? 'selected' : ''}" onclick="selectTime('${t}')">${t}</div>
-            `).join('');
+            container.innerHTML = ALL_SLOTS.map(t => {
+                const isOccupied = occupiedSlots.includes(t);
+                return `<div class="time-slot ${selectedTime === t ? 'selected' : ''} ${isOccupied ? 'occupied' : ''}" 
+                             onclick="${isOccupied ? '' : `selectTime('${t}')`}">${t}</div>`;
+            }).join('');
         }
 
         function selectTime(t) {
@@ -288,26 +295,26 @@
             document.getElementById('booking-form').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function confirmBooking() {
+        async function confirmBooking() {
             const name = document.getElementById('client-name').value.trim();
             const phone = document.getElementById('client-phone').value.trim();
+            if(!name || !phone) return alert("Por favor completa tus datos.");
 
-            if(!name || !phone) return alert("Por favor, completa tus datos.");
-            if(!selectedService || !selectedDate || !selectedTime) return alert("Faltan datos de la reserva.");
+            const { error } = await _supabase.from('agenda_turnos').insert([{
+                fecha: selectedDate, hora: selectedTime, servicio: selectedService.name, cliente_nombre: name, cliente_whatsapp: phone
+            }]);
 
-            const fechaFormat = new Date(selectedDate + "T00:00:00").toLocaleDateString('es-AR');
-            const msg = `*¡Hola Feli_Style!*%0AQuisiera reservar un turno:%0A%0A👤 *Nombre:* ${name}%0A✂️ *Servicio:* ${selectedService.name}%0A📅 *Fecha:* ${fechaFormat}%0A⏰ *Hora:* ${selectedTime} hs.%0A%0A_Enviado desde la web oficial._`;
+            if(error) return alert("Error al reservar: " + error.message);
 
-            // Mostrar modal
-            document.getElementById('confirmation-details').innerHTML = `<b>${selectedService.name}</b><br>${fechaFormat} a las ${selectedTime} hs.`;
+            const fechaLabel = new Date(selectedDate + "T00:00:00").toLocaleDateString('es-AR');
+            document.getElementById('confirmation-details').innerHTML = `<b>${selectedService.name}</b><br>${fechaLabel} a las ${selectedTime} hs.`;
             document.getElementById('confirmation-modal').classList.add('active');
 
-            // Abrir WhatsApp con delay para evitar bloqueo de popup
-            setTimeout(() => {
-                window.open(`https://wa.me/5491123517723?text=${msg}`, '_blank');
-            }, 800);
+            const msg = window.encodeURIComponent(`¡Hola Feli_Style! Reservé un turno:\n👤 ${name}\n✂️ ${selectedService.name}\n📅 ${fechaLabel}\n⏰ ${selectedTime} hs.`);
+            setTimeout(() => { window.open(`https://wa.me/5491123517723?text=${msg}`, '_blank'); }, 1000);
         }
 
+        function changeMonth(v) { viewDate.setMonth(viewDate.getMonth() + v); renderCalendar(); }
         renderServices();
     </script>
 </body>
