@@ -5,17 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Feli_Style Barbería | Reservas Elegantes</title>
     
-    <!-- SEO Optimizado -->
-    <meta name="description" content="Agenda online exclusiva para Feli_Style Barbería. Reserva tu turno para corte, arreglo de barba, afeitado y servicios premium.">
-    <meta name="keywords" content="barbería, agenda online, turnos, corte de pelo, barba, afeitado, Feli_Style, estilo masculino">
-    <meta name="author" content="Feli_Style Barbería">
-    
-    <!-- Open Graph -->
-    <meta property="og:image" content="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
-    
-    <!-- Favicon -->
+    <!-- SEO y Meta Tags originales -->
+    <meta name="description" content="Agenda online exclusiva para Feli_Style Barbería.">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,7 +15,6 @@
     <style>
         :root {
             --primary: #0a0a0a;
-            --primary-dark: #000000;
             --secondary: #2a2a2a;
             --accent: #c9a86a;
             --accent-light: #e6d7b8;
@@ -31,6 +22,8 @@
             --light: #f8f8f8;
             --white: #ffffff;
             --gray: #777777;
+            --danger: #cc3333;
+            --success: #2ecc71;
             --border: #e0e0e0;
             --radius-lg: 24px;
             --radius-md: 16px;
@@ -41,240 +34,202 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; -webkit-tap-highlight-color: transparent; }
-        
-        body { background-color: var(--white); color: var(--dark); line-height: 1.6; overflow-x: hidden; width: 100%; font-weight: 400; }
-        
+        body { background-color: var(--white); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, h4, .section-title, .logo h1, .hero h2, .calendar-title { font-family: 'Poppins', sans-serif; font-weight: 600; }
-        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header */
         header {
-            background: var(--primary); color: white; padding: 1.4rem 0; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.15); backdrop-filter: blur(10px); background: rgba(10, 10, 10, 0.95);
+            background: rgba(10, 10, 10, 0.95); color: white; padding: 1.4rem 0; position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 16px; }
         .logo-img { height: 56px; width: auto; border-radius: var(--radius-sm); border: 2px solid var(--accent); }
-        .logo h1 { font-size: 1.6rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo span { font-weight: 300; font-size: 0.85rem; color: var(--accent-light); text-transform: uppercase; }
+        .logo h1 { font-size: 1.4rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .social-icons { display: flex; gap: 12px; }
-        .social-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); background: rgba(255, 255, 255, 0.08); }
-        .social-icon.whatsapp:hover { background: #25D366; }
-        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-
-        .cart-btn { 
-            background: rgba(255,255,255,0.1); border: 1.5px solid var(--accent); color: var(--white);
-            padding: 10px 22px; border-radius: 50px; cursor: pointer; display: flex; align-items: center; gap: 10px;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center; padding: 80px 20px; color: white; margin-bottom: 50px;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
-            background-size: cover; background-position: center; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-        }
-        .hero h2 { font-size: 3rem; margin-bottom: 20px; }
-        .cta-button {
-            background: var(--accent); color: var(--primary); padding: 18px 42px; border-radius: 50px;
-            font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: var(--transition); border: none;
-        }
-
-        /* ===== NUEVA SECCIÓN GALERÍA ===== */
-        .gallery-section { padding: 60px 0; background: #fff; }
+        /* ===== NUEVA SECCIÓN GALERÍA (TRABAJOS REALES) ===== */
+        .gallery-section { padding: 40px 0 60px; text-align: center; }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
             margin-top: 30px;
         }
         .gallery-item {
-            position: relative;
+            height: 300px;
             border-radius: var(--radius-md);
             overflow: hidden;
-            height: 350px;
             box-shadow: var(--shadow);
-            cursor: pointer;
+            border: 1px solid var(--border);
         }
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: var(--transition);
         }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-item::after {
-            content: 'Ver trabajo';
-            position: absolute;
-            bottom: -50px;
-            left: 0;
-            width: 100%;
-            padding: 15px;
-            background: rgba(201, 168, 106, 0.9);
-            color: black;
-            text-align: center;
-            font-weight: 700;
-            transition: bottom 0.3s ease;
-        }
-        .gallery-item:hover::after {
-            bottom: 0;
-        }
+        .gallery-item:hover img { transform: scale(1.08); }
 
-        /* Títulos */
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--primary); position: relative; padding-bottom: 20px; }
-        .section-title:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--gold-gradient); border-radius: 2px; }
+        /* HERO */
+        .hero {
+            text-align: center; padding: 80px 20px; color: white; margin-bottom: 50px; border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074');
+            background-size: cover; background-position: center;
+        }
+        .cta-button { background: var(--accent); color: var(--primary); padding: 18px 42px; border-radius: 50px; font-weight: 700; cursor: pointer; border: none; text-transform: uppercase; }
 
-        /* Servicios */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
-        .service-card { background: var(--white); border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--border); cursor: pointer; transition: var(--transition); }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        /* SERVICIOS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .service-card { background: white; border-radius: var(--radius-md); padding: 30px; border: 1px solid var(--border); cursor: pointer; transition: var(--transition); position: relative; }
+        .service-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--shadow-hover); }
         .service-card.selected { border: 2px solid var(--accent); background: #fffcf5; }
-        .service-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
-        .service-price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .service-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
+        .service-price { font-size: 1.6rem; font-weight: 700; color: var(--primary); }
 
-        /* Calendario */
-        .calendar-container { background: var(--white); border-radius: var(--radius-lg); padding: 35px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 30px; }
-        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; overflow-x: auto; }
-        .calendar-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: var(--radius-sm); border: 1px solid #eee; min-width: 45px; }
-        .calendar-day.selected { background: var(--accent); color: white; font-weight: bold; }
+        /* CALENDARIO ORIGINAL REFORZADO */
+        .calendar-container { background: white; border-radius: var(--radius-lg); padding: 30px; border: 1px solid var(--border); margin-bottom: 30px; }
+        .calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+        .calendar-day-header { text-align: center; font-weight: 700; padding: 10px; font-size: 0.8rem; background: var(--light); border-radius: 5px; }
+        .calendar-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 8px; border: 1px solid #eee; transition: 0.2s; }
+        .calendar-day:hover:not(.disabled) { background: var(--accent-light); }
+        .calendar-day.selected { background: var(--accent); color: white; border-color: var(--accent); }
         .calendar-day.disabled { color: #ccc; cursor: not-allowed; background: #f9f9f9; }
+        .calendar-day.today { border: 2px solid var(--accent); font-weight: bold; }
 
-        .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-top: 20px; }
-        .time-slot { padding: 12px; text-align: center; background: var(--light); border-radius: var(--radius-sm); cursor: pointer; transition: 0.3s; }
+        .time-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-top: 20px; }
+        .time-slot { padding: 12px; text-align: center; background: var(--light); border-radius: 10px; cursor: pointer; border: 1px solid transparent; }
         .time-slot.selected { background: var(--accent); color: white; }
 
-        /* Formulario */
-        .booking-form { background: var(--white); border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 60px; }
-        .form-group { margin-bottom: 20px; }
-        .form-input { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 1rem; }
-        .btn-primary { background: var(--primary); color: white; padding: 18px; border-radius: var(--radius-md); width: 100%; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; }
+        /* FORMULARIO */
+        .booking-form { background: white; border-radius: var(--radius-lg); padding: 35px; border: 1px solid var(--border); margin-bottom: 60px; }
+        .form-input { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 15px; font-size: 1rem; }
+        .btn-primary { width: 100%; padding: 20px; background: var(--primary); color: white; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; }
 
-        /* Contacto */
-        .contact-info { background: var(--primary); color: white; padding: 50px; border-radius: var(--radius-lg); text-align: center; }
-        .contact-info h3 { margin-bottom: 20px; color: var(--accent); }
+        /* ADMIN */
+        .admin-panel { background: white; border: 2px solid var(--primary); border-radius: var(--radius-lg); padding: 30px; margin: 40px 0; display: none; }
+        .admin-panel.visible { display: block; }
+        .appointment-item { background: var(--light); padding: 20px; border-radius: 15px; margin-bottom: 15px; border-left: 5px solid var(--accent); display: flex; justify-content: space-between; align-items: center; }
 
-        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
+        .section-title { text-align: center; font-size: 1.8rem; margin: 50px 0 30px; position: relative; padding-bottom: 15px; }
+        .section-title:after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--gold-gradient); }
+
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
         .modal.active { display: flex; }
-        .modal-content { background: white; width: 100%; max-width: 500px; padding: 30px; border-radius: var(--radius-lg); text-align: center; }
+        .modal-content { background: white; padding: 40px; border-radius: var(--radius-lg); text-align: center; max-width: 450px; width: 100%; }
 
         #notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--success); color: white; padding: 15px 30px; border-radius: 50px; display: none; z-index: 3000; }
-
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            .calendar-grid { gap: 5px; }
-            .gallery-item { height: 300px; }
-        }
     </style>
 </head>
 <body>
     <header>
         <div class="container header-content">
             <div class="logo">
-                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" alt="Logo" class="logo-img">
+                <img src="https://i.postimg.cc/s2dsJwRZ/IMG-20260122-WA0001.jpg" class="logo-img">
                 <div class="logo-text">
                     <h1>Feli_Style</h1>
-                    <span>Excelencia en Corte</span>
+                    <span style="font-size: 0.7rem; color: var(--accent-light); text-transform: uppercase;">Barbería de Excelencia</span>
                 </div>
             </div>
-            <div class="social-icons">
-                <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-            <button class="cart-btn" id="cart-btn">
-                <i class="fas fa-calendar-check"></i> <span id="cart-count">0</span>
-            </button>
+            <button class="cta-button" style="padding: 8px 20px; font-size: 0.8rem;" onclick="scrollToServices()">Reservar</button>
         </div>
     </header>
 
     <main class="container">
         <section class="hero">
             <h2>Experiencia Barbería Premium</h2>
-            <p>El estilo que buscás, con la atención que merecés.</p>
-            <button class="cta-button" onclick="scrollToServices()">Reservar Turno</button>
+            <p>Donde el estilo se encuentra con la excelencia.</p>
+            <button class="cta-button" style="margin-top: 20px;" onclick="scrollToServices()">Ver Servicios</button>
         </section>
 
-        <!-- NUEVA SECCIÓN DE GALERÍA (Reemplaza al QR) -->
+        <!-- SECCIÓN DE FOTOS (Reemplaza al QR) -->
         <section class="gallery-section">
-            <h3 class="section-title">Nuestros Trabajos</h3>
+            <h3 class="section-title">Trabajos Reales</h3>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://i.postimg.cc/T32G8NfQ/IMG-20260212-WA0003.jpg" alt="Corte 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://i.postimg.cc/CxMYyrSm/IMG-20260212-WA0004.jpg" alt="Corte 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://i.postimg.cc/zGD5m28n/IMG-20260212-WA0005.jpg" alt="Corte 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://i.postimg.cc/sgfyFHsT/IMG-20260212-WA0006.jpg" alt="Corte 4">
-                </div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=2070"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599351431247-f10b21ce963f?q=80&w=1974"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1622286332618-f2803b11558c?q=80&w=2070"></div>
             </div>
         </section>
 
-        <section class="services-section" id="services">
-            <h3 class="section-title">Servicios</h3>
+        <section id="services">
+            <h3 class="section-title">Nuestros Servicios</h3>
             <div class="services-grid" id="services-container"></div>
         </section>
 
         <section class="calendar-section">
             <h3 class="section-title">Fecha y Hora</h3>
             <div class="calendar-container">
-                <div id="current-month" style="text-align: center; font-weight: bold; margin-bottom: 15px; font-size: 1.2rem;"></div>
+                <div class="calendar-header">
+                    <button id="prev-month" style="border:none; background:none; cursor:pointer;"><i class="fas fa-chevron-left"></i></button>
+                    <div class="calendar-title" id="current-month"></div>
+                    <button id="next-month" style="border:none; background:none; cursor:pointer;"><i class="fas fa-chevron-right"></i></button>
+                </div>
                 <div class="calendar-grid" id="calendar-days"></div>
-                <div class="time-slots" id="time-slots" style="display: none;"></div>
+            </div>
+
+            <div class="calendar-container" id="time-slots-container" style="display: none;">
+                <h4>Horarios para el <span id="selected-date-display"></span></h4>
+                <div class="time-slots" id="time-slots"></div>
             </div>
         </section>
 
         <section class="booking-form" id="booking-form" style="display: none;">
             <h3 class="section-title">Tus Datos</h3>
-            <div class="form-group">
-                <input type="text" class="form-input" id="client-name" placeholder="Nombre completo">
-            </div>
-            <div class="form-group">
-                <input type="tel" class="form-input" id="client-phone" placeholder="WhatsApp (Ej: 11 1234 5678)">
-            </div>
-            <button class="btn-primary" onclick="confirmBooking()">Confirmar Reserva</button>
+            <input type="text" class="form-input" id="client-name" placeholder="Nombre completo">
+            <input type="tel" class="form-input" id="client-phone" placeholder="WhatsApp (11 1234 5678)">
+            <button class="btn-primary" onclick="confirmBooking()">Confirmar Turno</button>
         </section>
 
-        <section class="contact-info">
-            <h3>Contacto</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Enrique Dunant 626, Buenos Aires</p>
-            <p><i class="fas fa-phone-alt"></i> 011-2351-7723</p>
-        </section>
+        <!-- PANEL ADMIN (OCULTO) -->
+        <div class="admin-panel" id="admin-panel">
+            <h3>Turnos Programados</h3>
+            <div id="appointments-list"></div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <button style="background: none; border: 1px solid #ccc; padding: 10px; cursor: pointer; color: #999;" onclick="checkAdminAccess()">Acceso Admin</button>
+        </div>
     </main>
 
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
-            <i class="fas fa-check-circle" style="font-size: 4rem; color: #2ecc71; margin-bottom: 20px;"></i>
-            <h3>¡Reserva Exitosa!</h3>
-            <p id="confirmation-details"></p>
-            <button class="btn-primary" onclick="location.reload()" style="margin-top: 20px;">Cerrar</button>
+            <i class="fas fa-check-circle" style="font-size: 4rem; color: var(--success); margin-bottom: 20px;"></i>
+            <h3>¡Reserva Confirmada!</h3>
+            <p id="confirmation-details" style="margin: 15px 0;"></p>
+            <button class="btn-primary" onclick="location.reload()">Aceptar</button>
         </div>
     </div>
 
     <div id="notification"></div>
 
     <script>
-        const SERVICES = [
-            { id: 1, name: 'Corte de Cabello', price: 9000, duration: 30, icon: 'cut' },
-            { id: 2, name: 'Arreglo de Barba', price: 5000, duration: 20, icon: 'user-tie' },
-            { id: 3, name: 'Combo Full', price: 12000, duration: 50, icon: 'star' }
-        ];
+        const CONFIG = {
+            ADMIN: { user: "admin", pass: "feli123" },
+            DEFAULT_SERVICES: [
+                { id: '1', name: 'Corte de Cabello', duration: 30, price: 9000, icon: 'cut' },
+                { id: '2', name: 'Corte Niños (hasta 11 años)', duration: 35, price: 7000, icon: 'child' },
+                { id: '3', name: 'Arreglo de Barba Completo', duration: 35, price: 2000, icon: 'user-tie' },
+                { id: '4', name: 'Afeitado Tradicional', duration: 15, price: 3000, icon: 'razor' },
+                { id: '5', name: 'Perfilado de Ceja', duration: 10, price: 2000, icon: 'eye' },
+                { id: '6', name: 'Corte + Barba', duration: 40, price: 10000, icon: 'crown' },
+                { id: '7', name: 'Corte + Cejas + Barba', duration: 50, price: 12000, icon: 'star' }
+            ]
+        };
 
-        let selectedService = null;
+        let selectedServices = [];
         let selectedDate = null;
         let selectedTime = null;
+        let appointments = JSON.parse(localStorage.getItem('feli_appointments')) || [];
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
 
         function renderServices() {
             const container = document.getElementById('services-container');
-            container.innerHTML = SERVICES.map(s => `
-                <div class="service-card" onclick="selectService(${s.id})" id="service-${s.id}">
-                    <div class="service-icon"><i class="fas fa-${s.icon}"></i></div>
+            container.innerHTML = CONFIG.DEFAULT_SERVICES.map(s => `
+                <div class="service-card" onclick="toggleService('${s.id}')" id="service-${s.id}">
+                    <div class="service-icon"><i class="fas fa-cut"></i></div>
                     <h4>${s.name}</h4>
                     <div class="service-price">$${s.price.toLocaleString()}</div>
                     <p>${s.duration} min</p>
@@ -282,50 +237,53 @@
             `).join('');
         }
 
-        function selectService(id) {
-            selectedService = SERVICES.find(s => s.id === id);
+        function toggleService(id) {
+            const service = CONFIG.DEFAULT_SERVICES.find(s => s.id === id);
+            selectedServices = [service]; // Selección simple para esta versión
             document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
             document.getElementById(`service-${id}`).classList.add('selected');
-            document.getElementById('cart-count').innerText = "1";
             renderCalendar();
         }
 
         function renderCalendar() {
-            const daysContainer = document.getElementById('calendar-days');
-            const now = new Date();
-            const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-            document.getElementById('current-month').innerText = monthNames[now.getMonth()] + " " + now.getFullYear();
+            const container = document.getElementById('calendar-days');
+            const monthTitle = document.getElementById('current-month');
+            const names = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+            
+            monthTitle.innerText = `${names[currentMonth]} ${currentYear}`;
+            
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const today = new Date();
+            today.setHours(0,0,0,0);
 
-            let html = '';
-            for(let i=0; i<14; i++) {
-                let date = new Date();
-                date.setDate(now.getDate() + i);
-                let dayName = date.toLocaleDateString('es', {weekday: 'short'});
-                let isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
+            let html = ["Dom","Lun","Mar","Mie","Jue","Vie","Sab"].map(d => `<div class="calendar-day-header">${d}</div>`).join('');
+            
+            for(let i=0; i<firstDay; i++) html += `<div class="calendar-day disabled"></div>`;
+            
+            for(let d=1; d<=daysInMonth; d++) {
+                const date = new Date(currentYear, currentMonth, d);
+                const dateStr = date.toISOString().split('T')[0];
+                const isPast = date < today;
+                const isSelected = selectedDate === dateStr;
                 
-                html += `
-                    <div class="calendar-day ${isSelected ? 'selected' : ''}" onclick="selectDate('${date.toISOString()}')">
-                        <div>
-                            <div style="font-size: 0.7rem; text-transform: uppercase;">${dayName}</div>
-                            <div style="font-size: 1.1rem; font-weight: bold;">${date.getDate()}</div>
-                        </div>
-                    </div>
-                `;
+                html += `<div class="calendar-day ${isPast ? 'disabled' : ''} ${isSelected ? 'selected' : ''} ${date.toDateString() === new Date().toDateString() ? 'today' : ''}" 
+                             onclick="${isPast ? '' : `selectDate('${dateStr}')`}">${d}</div>`;
             }
-            daysContainer.innerHTML = html;
+            container.innerHTML = html;
         }
 
-        function selectDate(dateIso) {
-            selectedDate = new Date(dateIso);
+        function selectDate(dateStr) {
+            selectedDate = dateStr;
             renderCalendar();
+            document.getElementById('selected-date-display').innerText = dateStr;
+            document.getElementById('time-slots-container').style.display = 'block';
             renderTimeSlots();
         }
 
         function renderTimeSlots() {
             const container = document.getElementById('time-slots');
-            container.style.display = 'grid';
-            const slots = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-            
+            const slots = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
             container.innerHTML = slots.map(s => `
                 <div class="time-slot ${selectedTime === s ? 'selected' : ''}" onclick="selectTime('${s}')">${s}</div>
             `).join('');
@@ -335,28 +293,51 @@
             selectedTime = time;
             renderTimeSlots();
             document.getElementById('booking-form').style.display = 'block';
-            window.scrollTo({ top: document.getElementById('booking-form').offsetTop - 100, behavior: 'smooth' });
         }
 
         function confirmBooking() {
             const name = document.getElementById('client-name').value;
             const phone = document.getElementById('client-phone').value;
-            if(!name || !phone) return alert("Por favor completa tus datos");
+            if(!name || !phone) return alert("Completa tus datos");
 
-            const details = `Turno para ${name} - ${selectedService.name} el ${selectedDate.toLocaleDateString()} a las ${selectedTime}hs.`;
-            document.getElementById('confirmation-details').innerText = details;
+            const appointment = { name, phone, date: selectedDate, time: selectedTime, service: selectedServices[0].name };
+            appointments.push(appointment);
+            localStorage.setItem('feli_appointments', JSON.stringify(appointments));
+
+            document.getElementById('confirmation-details').innerText = `${selectedServices[0].name} - ${selectedDate} a las ${selectedTime}hs.`;
             document.getElementById('confirmation-modal').classList.add('active');
-            
-            // Enviar WhatsApp (Simulado)
-            const waMsg = encodeURIComponent(`Hola! Reservé un turno: ${details}`);
-            window.open(`https://wa.me/5491123517723?text=${waMsg}`, '_blank');
+
+            const msg = encodeURIComponent(`Hola! Reserva de ${name}: ${selectedServices[0].name} el ${selectedDate} a las ${selectedTime}hs.`);
+            window.open(`https://wa.me/5491123517723?text=${msg}`, '_blank');
         }
 
-        function scrollToServices() {
-            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        function checkAdminAccess() {
+            const pass = prompt("Contraseña admin:");
+            if(pass === CONFIG.ADMIN.pass) {
+                document.getElementById('admin-panel').classList.add('visible');
+                renderAdminList();
+            }
         }
+
+        function renderAdminList() {
+            const list = document.getElementById('appointments-list');
+            list.innerHTML = appointments.map(a => `
+                <div class="appointment-item">
+                    <div>
+                        <b>${a.name}</b> (${a.phone})<br>
+                        ${a.service} - ${a.date} ${a.time}hs
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('prev-month').onclick = () => { currentMonth--; if(currentMonth<0){currentMonth=11; currentYear--;} renderCalendar(); };
+        document.getElementById('next-month').onclick = () => { currentMonth++; if(currentMonth>11){currentMonth=0; currentYear++;} renderCalendar(); };
+
+        function scrollToServices() { document.getElementById('services').scrollIntoView({ behavior: 'smooth' }); }
 
         renderServices();
+        renderCalendar();
     </script>
 </body>
 </html>
