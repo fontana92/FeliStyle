@@ -48,7 +48,7 @@
             background-size: cover; background-position: center;
         }
 
-        /* GALERIA CON TITULOS */
+        /* GALERIA INTERACTIVA */
         .gallery-section { padding: 20px 0; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
         .gallery-item { 
@@ -81,7 +81,8 @@
             aspect-ratio: 1; display: flex; align-items: center; justify-content: center; 
             cursor: pointer; border-radius: 10px; border: 1px solid #f0f0f0; transition: 0.2s;
         }
-        .calendar-day.selected { background: var(--accent) !important; color: white !important; font-weight: bold; }
+        .calendar-day:hover:not(.disabled) { background: var(--accent-light); }
+        .calendar-day.selected { background: var(--accent) !important; color: white !important; font-weight: bold; border-color: var(--accent); }
         .calendar-day.disabled { color: #ccc; cursor: not-allowed; background: #fafafa; border: none; }
         .calendar-day.today { border: 2px solid var(--accent); color: var(--accent); font-weight: 700; }
 
@@ -102,7 +103,6 @@
         .modal.active { display: flex; }
         .modal-content { background: white; padding: 40px; border-radius: var(--radius-lg); text-align: center; max-width: 400px; width: 100%; }
 
-        /* FOOTER */
         footer { 
             padding: 40px 0; text-align: center; border-top: 1px solid #eee; background: #fafafa;
             color: #666; font-size: 0.9rem; letter-spacing: 1px;
@@ -119,7 +119,7 @@
                 <h1>Feli_Style</h1>
             </div>
             <div style="display: flex; gap: 20px;">
-                <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/felistyle_/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/5491123517723" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
@@ -131,20 +131,21 @@
             <p>Reserva tu lugar en segundos.</p>
         </section>
 
+        <!-- GALERIA CON NAVEGACIÓN -->
         <section class="gallery-section">
             <h3 class="section-title">Trabajos Reales</h3>
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="selectServiceByTitle('1')">
-                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=500">
-                    <div class="gallery-title">Corte Premium</div>
+                    <img src="https://i.postimg.cc/zGD5m28n/IMG-20260212-WA0005.jpg">
+                    <div class="gallery-title">Corte de Cabello</div>
                 </div>
                 <div class="gallery-item" onclick="selectServiceByTitle('3')">
-                    <img src="https://images.unsplash.com/photo-1599351431247-f10b21ce963f?q=80&w=500">
+                    <img src="https://i.postimg.cc/T32G8NfQ/IMG-20260212-WA0003.jpg">
                     <div class="gallery-title">Arreglo de Barba</div>
                 </div>
                 <div class="gallery-item" onclick="selectServiceByTitle('6')">
-                    <img src="https://images.unsplash.com/photo-1622286332618-f2803b11558c?q=80&w=500">
-                    <div class="gallery-title">Combo Real</div>
+                    <img src="https://i.postimg.cc/sgfyFHsT/IMG-20260212-WA0006.jpg">
+                    <div class="gallery-title">Perfilado de Ceja</div>
                 </div>
             </div>
         </section>
@@ -196,15 +197,15 @@
 
     <script>
         // --- CONFIGURACIÓN SUPABASE ---
-        const SUPABASE_URL = "Thttps://acumbghpdubforsfifyd.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjdW1iZ2hwZHViZm9yc2ZpZnlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2ODU2ODEsImV4cCI6MjA4OTI2MTY4MX0.szs3W1Ki-8EC4NlCDhaWw2Y4s3XGJmPu0FGUIvmzDD8";
+        const SUPABASE_URL = "https://acumbghpdubforsfifyd.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_aYOgFkyaRa7sNX82xRojEw_uUkgAzME";
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         const SERVICES = [
             { id: '1', name: 'Corte de Cabello', price: 9000, icon: 'cut' },
             { id: '2', name: 'Corte Niños', price: 7000, icon: 'child' },
             { id: '3', name: 'Arreglo de Barba', price: 2000, icon: 'user-tie' },
-            { id: '4', name: 'Afeitado Tradicional', price: 3000, icon: 'razor' },
+            { id: '4', name: 'Afeitado Tradicional', price: 3000, icon: 'hand-sparkles' },
             { id: '5', name: 'Perfilado de Ceja', price: 2000, icon: 'eye' },
             { id: '6', name: 'Corte + Barba', price: 10000, icon: 'crown' },
             { id: '7', name: 'Pelo + Barba + Ceja', price: 12000, icon: 'star' }
